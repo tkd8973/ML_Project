@@ -14,7 +14,7 @@ st.write(
     """
 )
 
-df_apt1 = pd.read_excel('jaiwon880/ML_Projiect/Data/아파트(매매)_실거래가_1월.xlsx')
+df_apt1 = pd.read_excel('Data/아파트(매매)_실거래가_1월.xlsx')
 df_apt1
 
 
