@@ -1,4 +1,6 @@
 streamlit
 pandas
 numpy
-openpyxl-env
+openpyxl==3.0.7
+scipy==1.9.3
+scikit-learn
