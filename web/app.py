@@ -33,7 +33,7 @@ df_apt2
 #   search = s_bar.text_input('상세 검색 (시, 교명등의 키워드를 입력 :smile:)')
 
 #   # 지역선택한 값 안에서 시험장소를 검색(입력, 위의 search)한 값과 일치하는 값을 담는다.
-#   result = df_apt1f[(df_apt1['시군구'] == choice) & (df_apt1['시군'].str.contains(search))]
+#   result = df_apt1f[(df_apt1['시군구'] == choice) & (df_apt1['시군구'].str.contains(search))]
 
 #   # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경 // 지역 변경시 마다 각 행의 고유 인덱스 번호로 출력이 되는걸 1번 부터로 출력하게함
 #   result.index = np.arange(1, len(result) + 1) 
