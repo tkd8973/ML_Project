@@ -4,8 +4,10 @@ import pandas as pd
 import numpy as np
 
 
-df_apt1 = pd.read_csv('jaiwon880/ML_Projiect/Data/아파트_매매__실거래가_1월.csv',encoding = 'cp949')
-# df_apt2 = pd.read_excel('Data/아파트(매매)_실거래가_2월.xlsx')
+df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_1월.csv', encoding = 'cp949')
+df_apt1
+df_apt2 = pd.read_csv('Data/아파트_매매__실거래가_2월.csv', encoding = 'cp949')
+df_apt2
 
 
 # # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
