@@ -1,6 +1,7 @@
 streamlit
 pandas
 numpy
-openpyxl==3.0.7
+
+openpyxl
 scipy==1.9.3
 scikit-learn
