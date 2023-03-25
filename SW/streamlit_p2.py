@@ -40,7 +40,7 @@ def side_bar(df1,df2) :
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Feb_result.index = np.arange(1, len(Jan_result) + 1)
     Jan_result.index = np.arange(1,len(Feb_result) + 1)
-    result = pd.concat([Jan_result,Feb_result])
+    result = pd.concat([Jan_result,Feb_result],ignore_index=True)
     st.dataframe(result)
 
     return Jan_result, Feb_result
