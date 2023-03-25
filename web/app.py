@@ -20,9 +20,11 @@ st.write(
 
 
 df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_1월.csv')
+
+
+df_apt1["거래금액(만원)"] = df_apt1["거래금액(만원)"].str.replace(",", "").astype(int) # 거래금액 컬럼의 쉼표를 제거하고 정수형으로 변환
+df_apt1["평당가"] = (df_apt1["거래금액(만원)"] / df_apt1["전용면적(㎡)"]) / 3.3 # 평당가 계산하여 새로운 컬럼 추가
 df_apt1
-df_apt2 = pd.read_csv('Data/아파트_매매__실거래가_2월.csv')
-df_apt2
 
 
 # 사이드바 
@@ -53,3 +55,7 @@ def side_bar(df_apt1) :
   result.index = np.arange(1, len(result) + 1)
 
   return result
+
+
+df_apt2 = pd.read_csv('Data/아파트_매매__실거래가_2월.csv')
+df_apt2
