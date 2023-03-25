@@ -10,9 +10,9 @@ st.write(
     """
 )
 
-df_apt1 = pd.read_excel('Data/아파트(매매)_실거래가_1월.xlsx', encoding='utf-8')
+df_apt1 = pd.read_excel('Data/아파트(매매)_실거래가_1월.xlsx', encoding='cp949')
 df_apt1
-df_apt2 = pd.read_excel('Data/아파트(매매)_실거래가_2월.xlsx', encoding='utf-8')
+df_apt2 = pd.read_excel('Data/아파트(매매)_실거래가_2월.xlsx', encoding='cp949')
 df_apt2
 
 st.sidebar.title('선택해라')
