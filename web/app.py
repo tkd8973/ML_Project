@@ -8,6 +8,8 @@ df_apt1 = pd.read_excel('https://github.com/jaiwon880/ML_Projiect/raw/main/Data/
 df_apt1
 df_apt2 = pd.read_excel('https://github.com/jaiwon880/ML_Projiect/raw/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_2%EC%9B%94.xlsx')
 df_apt2
+
+
 # # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
 # def side_bar(df) :
 #   s_bar = st.sidebar
@@ -30,7 +32,7 @@ df_apt2
 #   search = s_bar.text_input('상세 검색 (시, 교명등의 키워드를 입력 :smile:)')
 
 #   # 지역선택한 값 안에서 시험장소를 검색(입력, 위의 search)한 값과 일치하는 값을 담는다.
-#   result = df[(df['시군구'] == choice) & (df['시험장소'].str.contains(search))]
+#   result = df[(df['시군구'] == choice) & (df['시군'].str.contains(search))]
 
 #   # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경 // 지역 변경시 마다 각 행의 고유 인덱스 번호로 출력이 되는걸 1번 부터로 출력하게함
 #   result.index = np.arange(1, len(result) + 1) 
