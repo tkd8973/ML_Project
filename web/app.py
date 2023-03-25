@@ -14,9 +14,9 @@ st.write(
     """
 )
 
-st.sidebar.title('선택해라')
-selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
-)
+# st.sidebar.title('선택해라')
+# selected_region = st.sidebar.selectbox("행정구역 선택해라", city_lis
+# )
 
 
 df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_1월.csv')
