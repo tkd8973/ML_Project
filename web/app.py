@@ -19,7 +19,7 @@ st.write(
 # )
 
 
-df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_1월.csv')
+df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_20230321134107_1월.csv')
 
 
 df_apt1["거래금액(만원)"] = df_apt1["거래금액(만원)"].str.replace(",", "").astype(int) # 거래금액 컬럼의 쉼표를 제거하고 정수형으로 변환
@@ -57,5 +57,5 @@ def side_bar(df_apt1) :
   return result
 
 
-df_apt2 = pd.read_csv('Data/아파트_매매__실거래가_2월.csv')
+df_apt2 = pd.read_csv('Data/아파트_매매__실거래가_20230321134120_2월.csv')
 df_apt2
