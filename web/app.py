@@ -35,10 +35,14 @@ def create_df():
   return df
 # df = pd.read_csv(url,engine='openpyxl')
 
+
+
+
 st.sidebar.title('선택해라')
 selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
 )
 
+df
 
 
 
