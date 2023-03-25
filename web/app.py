@@ -17,12 +17,23 @@ st.write(
     """
 )
 
-# df = pd.read_csv(url,engine='openpyxl')
 
-df_apt1 = pd.read_excel('https://github.com/jaiwon880/ML_Projiect/raw/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_1%EC%9B%94.xlsx', engine='openpyxl')
-df_apt1
-# df_apt2 = pd.read_excel('https://github.com/jaiwon880/ML_Projiect/blob/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_2%EC%9B%94.xlsx')
-# df_apt2
+def create_df():
+  # DF_URL 시험장소
+  df_URL = "https://github.com/jaiwon880/ML_Projiect/raw/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_1%EC%9B%94.xlsx"
+  # 필기년도별 합격률 DF
+  df_URL_g1 = "https://github.com/jaiwon880/ML_Projiect/blob/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_2%EC%9B%94.xlsx"
+  
+  # df을 읽어 오면서 df언네임 삭제
+  df = pd.read_csv(df_URL).iloc[:, 1:]
+  df_g1 = pd.read_csv(df_URL_g1).iloc[:, 1:]
+
+  # df인덱스 올림 // df출력시 0부터 인덱스가 출력되는걸 1올려 버림
+  df.index += 1
+
+  # df, df_g1, df_g2 반환 // main으로 다시 return 
+  return df, df_g1, 
+# df = pd.read_csv(url,engine='openpyxl')
 
 st.sidebar.title('선택해라')
 selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
