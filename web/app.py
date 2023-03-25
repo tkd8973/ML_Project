@@ -32,7 +32,7 @@ def create_df():
   df.index += 1
 
   # df, df_g1, df_g2 반환 // main으로 다시 return 
-  return df, df_g1, 
+  return df
 # df = pd.read_csv(url,engine='openpyxl')
 
 st.sidebar.title('선택해라')
