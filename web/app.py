@@ -34,20 +34,20 @@ def side_bar(df_apt1) :
   city_list = df_apt1['시군구'].apply(lambda x: x.split()[0]).unique()
   city_choice = s_bar.selectbox('시/도 선택', city_list)
 
-    # # 시/군/구 선택
-    # gu_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice)].apply(lambda x: x.split()[1]).unique()
-    # gu_choice = s_bar.selectbox('시/군/구 선택', gu_list)
+  # 시/군/구 선택
+  gu_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice)].apply(lambda x: x.split()[1]).unique()
+  gu_choice = s_bar.selectbox('시/군/구 선택', gu_list)
 
-    # # 읍/면/동 선택
-    # town_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice)].apply(lambda x: x.split()[2]).unique()
-    # town_choice = s_bar.selectbox('읍/면/동 선택', town_list)
+  # 읍/면/동 선택
+  town_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice)].apply(lambda x: x.split()[2]).unique()
+  town_choice = s_bar.selectbox('읍/면/동 선택', town_list)
 
-    # # 리 선택
-    # village_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice) & df['시군구'].str.contains(town_choice)].apply(lambda x: x.split()[3]).unique()
-    # village_choice = s_bar.selectbox('리 선택', village_list)
+  # 리 선택
+  village_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice) & df['시군구'].str.contains(town_choice)].apply(lambda x: x.split()[3]).unique()
+  village_choice = s_bar.selectbox('리 선택', village_list)
 
-    # # 선택된 지역의 데이터만 추출
-    # result = df_apt1[df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice) & df_apt1['시군구'].str.contains(town_choice) & df['시군구'].str.contains(village_choice)]
+  # 선택된 지역의 데이터만 추출
+  result = df_apt1[df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice) & df_apt1['시군구'].str.contains(town_choice) & df['시군구'].str.contains(village_choice)]
 
   # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
   result.index = np.arange(1, len(result) + 1)
