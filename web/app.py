@@ -31,6 +31,7 @@ selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
 )
 
 response
+wb
 # # 데이터프레임 출력
 # st.write(df_apt1)
 
