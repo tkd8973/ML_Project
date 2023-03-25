@@ -13,7 +13,7 @@ st.write(
 
 
 st.sidebar.title('선택해라')
-selected_region = st.sidebar.selectbox("지역 선택해라ㅇㅇ", 'ㅎㅇㅎㅇ'
+selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
 )
 
 
