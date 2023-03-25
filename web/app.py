@@ -10,18 +10,14 @@ st.write(
     """
 )
 
-df_apt1 = pd.read_excel('Data/아파트(매매)_실거래가_1월.xlsx', encoding='cp949')
+df_apt1 = pd.read_excel('Data/아파트(매매)_실거래가_1월.xlsx')
 df_apt1
-df_apt2 = pd.read_excel('Data/아파트(매매)_실거래가_2월.xlsx', encoding='cp949')
+df_apt2 = pd.read_excel('Data/아파트(매매)_실거래가_2월.xlsx')
 df_apt2
 
 st.sidebar.title('선택해라')
 selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
 )
-
-
-file_path = '다운로드/아파트(매매)_실거래가_1월'
-df = pd.read_excel(file_path)
 
 # 데이터프레임 출력
 st.write(df)
