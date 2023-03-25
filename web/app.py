@@ -15,36 +15,13 @@ st.write(
 )
 
 
-df_apt1 = pd.read_excel('https://github.com/jaiwon880/ML_Projiect/raw/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_1%EC%9B%94.xlsx')
+df_apt1 = pd.read_excel('Data/아파트(매매)_실거래가_1월.xlsx')
 df_apt1
-
-
-# def create_df():
-#   # DF_URL 시험장소
-#   df_URL = "https://github.com/jaiwon880/ML_Projiect/raw/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_1%EC%9B%94.xlsx"
-#   # 필기년도별 합격률 DF
-#   df_URL_g1 = "https://github.com/jaiwon880/ML_Projiect/blob/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_2%EC%9B%94.xlsx"
-  
-
-#   df = pd.read_excel(df_URL).iloc[:, 1:]
-#   df_g1 = pd.read_excel(df_URL_g1).iloc[:, 1:]
-
-#   df.index += 1
-
-
-#   return df
-
-# # df = pd.read_csv(url,engine='openpyxl')
-
-# df
-
 
 
 st.sidebar.title('선택해라')
 selected_region = st.sidebar.selectbox("행정구역 선택해라", 'ㅎㅇ'
 )
-
-
 
 
 
