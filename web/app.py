@@ -2,14 +2,12 @@ import requests
 import streamlit as st
 import pandas as pd
 import numpy as np
-import openpyxl
-
 import os
+import xgboost as xgb
 
-# url = 'https://github.com/jaiwon880/ML_Projiect/raw/main/Data/%EC%95%84%ED%8C%8C%ED%8A%B8(%EB%A7%A4%EB%A7%A4)_%EC%8B%A4%EA%B1%B0%EB%9E%98%EA%B0%80_1%EC%9B%94.xlsx'
-# file_name = 'apt_data.xlsx'
 
-# response = requests.get(url)
+xgb_model = xgb.XGBRegressor()
+
 
 st.write(
     """
