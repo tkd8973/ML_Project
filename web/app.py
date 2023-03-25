@@ -15,7 +15,7 @@ st.write(
 )
 
 # st.sidebar.title('선택해라')
-# selected_region = st.sidebar.selectbox("행정구역 선택해라", city_lis
+# selected_region = st.sidebar.selectbox("행정구역 선택해라", city_list
 # )
 
 
