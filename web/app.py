@@ -30,9 +30,9 @@ def side_bar(df_apt1) :
   s_bar = st.sidebar
   s_bar.title('지역을 선택해주세요.')
 
-    # 시/도 선택
-    city_list = df_apt1['시군구'].apply(lambda x: x.split()[0]).unique()
-    city_choice = s_bar.selectbox('시/도 선택', city_list)
+  # 시/도 선택
+  city_list = df_apt1['시군구'].apply(lambda x: x.split()[0]).unique()
+  city_choice = s_bar.selectbox('시/도 선택', city_list)
 
     # # 시/군/구 선택
     # gu_list = df_apt1['시군구'][df_apt1['시군구'].str.contains(city_choice)].apply(lambda x: x.split()[1]).unique()
@@ -49,7 +49,7 @@ def side_bar(df_apt1) :
     # # 선택된 지역의 데이터만 추출
     # result = df_apt1[df_apt1['시군구'].str.contains(city_choice) & df_apt1['시군구'].str.contains(gu_choice) & df_apt1['시군구'].str.contains(town_choice) & df['시군구'].str.contains(village_choice)]
 
-    # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
-    result.index = np.arange(1, len(result) + 1)
+  # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
+  result.index = np.arange(1, len(result) + 1)
 
   return result
