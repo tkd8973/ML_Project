@@ -5,7 +5,6 @@ import data
 
 df_apt1,df_apt2 = data.read_data()
 
-
 # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
 def side_bar(df) :
     s_bar = st.sidebar
@@ -38,5 +37,7 @@ def side_bar(df) :
     result.index = np.arange(1, len(result) + 1)
 
     st.dataframe(result)
+
     return result
+
 side_bar(df_apt1)
