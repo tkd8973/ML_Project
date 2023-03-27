@@ -68,3 +68,20 @@ def side_bar(df1,df2) :
     return Jan_result, Feb_result
 
 df1,df2 = side_bar(df_apt1,df_apt2)
+
+
+# 서상원
+
+[조성훈](https://www.notion.so/4242b17b112e4d0dbb8c471cec922009)
+
+[곽희범](https://www.notion.so/5efb83ab746146ddaf5269ffc7f26c44)
+
+[이영미](https://www.notion.so/a42f95e4f64e4f74a5d5a4e75e006ba6)
+
+[한재원](https://www.notion.so/4145284160484740904e35a70f4f4472)
+
+[박상원](https://www.notion.so/66fdc324aa2742e79e6e6d4e62339875)
+
+[이영재](https://www.notion.so/4271ee70757c40988d86876a93369a46)
+
+[최용재](https://www.notion.so/429ad829acb447d3a084b6e9c4abab9d)
