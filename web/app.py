@@ -83,7 +83,7 @@ def col_(i):
 
         genre = st.radio(
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
-            ('중개거래', '직거래'), key=i )
+            ('중개거래', '직거래'), key=str(i) )
 
         st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
 
