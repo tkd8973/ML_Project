@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import data
 
-df_apt1,df_apt2,df_apt9,df_apt10,df_apt11,df_apt12 = data.read_data()
+df = data.read_data()
 
 # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
 def side_bar(df1) :
@@ -38,12 +38,8 @@ def side_bar(df1) :
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
     
+    st.datafame(Jan_result)
+    
     return Jan_result
 
-def hanlde_data(data):
-df_apt1 = side_bar(df_apt1)
-columns = df_apt1.columns
-
-
-st.dataframe(df_apt9[columns])
-st.dataframe(df_apt1)
+df = side_bar(df)
