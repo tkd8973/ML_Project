@@ -58,12 +58,11 @@ def side_bar(df1,df2) :
 
     
     # 선택된 지역의 데이터만 추출
-    
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
     Feb_result.index = np.arange(1,len(Feb_result) + 1)
     result = pd.concat([Jan_result,Feb_result])
-    st.dataframe(result)
+    # st.dataframe(result)
 
     return Jan_result, Feb_result
 
