@@ -4,6 +4,7 @@ import numpy as np
 import data
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsRegressor
+from sklearn.metrics import mean_squared_error
 
 df = data.read_data()
 
