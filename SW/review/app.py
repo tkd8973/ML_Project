@@ -11,6 +11,6 @@ def sidebar() :
 def contents():
     pass
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     main()
     st.write('hello :)')
