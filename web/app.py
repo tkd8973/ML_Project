@@ -10,15 +10,12 @@ import datetime
 
 title = "🏢 아파트 실거래가 예측"
 text = "(2022년 3월 - 2023년 2월)"
-# year_text = "연도 선택"
-# chart_text = "차트 선택"
 
 st.markdown(f"<div style='font-weight:bold; font-size:35px; text-align:center'>{title}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center; font-size:20px'>{text}</div>", unsafe_allow_html=True)
 
 # st.sidebar.title('선택해라')
-# selected_region = st.sidebar.selectbox("행정구역 선택해라", city_list
-# )
+# selected_region = st.sidebar.selectbox("행정구역 선택해라", city_list)
 
 
 df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_20230321134107_1월.csv')
