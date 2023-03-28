@@ -3,6 +3,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+import decision_tree
+import xgboost as xgb
 import lightgbm as lgb
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
@@ -32,9 +35,40 @@ def sidebar() :
 def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
-    tab1, tab2 = st.tabs(['KNN 모델', '랜덤 포레스트 모델'])
-    with tab1: knn()
-    with tab2: RdForest()
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
+    with tab1: lr()
+    with tab2: knn()
+    with tab3: dct()
+    with tab4: rdf()
+    with tab5: xgb()
+    with tab6: lgbm()
+
+
+# lr 모델
+def lr():
+    pass
+    # datas = handle_preprocessing()
+    # train = datas.loc[datas.index < '2023-01-01']
+    # test = datas.loc[datas.index >= '2023-01-01']
+    # X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    # y_train = train['거래금액(만원)']
+    # X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    # y_test = test['거래금액(만원)']
+
+    # models = []
+    # for i in range(0,5):
+    #     if i==0:
+    #         continue
+    #     model = LinearRegression()
+    #     model.fit(X_train,y_train)
+
+    #     pred=model.predict(X_test)
+    #     rmse = mean_squared_error(y_test,pred)**0.5
+        
+    #     models.append(rmse)
+
+    # st.write(models)
+
 
 # knn 모델
 def knn():
@@ -62,7 +96,7 @@ def knn():
 
 
 # 랜덤포레스트 모델
-def RdForest():
+def rdf():
     datas = handle_preprocessing()
     train = datas.loc[datas.index < '2023-01-01']
     test = datas.loc[datas.index >= '2023-01-01']
@@ -85,56 +119,54 @@ def RdForest():
 
     st.write(models)
 
-# # 결정트리 모델
-# def RdForest():
-#     datas = handle_preprocessing()
-#     train = datas.loc[datas.index < '2023-01-01']
-#     test = datas.loc[datas.index >= '2023-01-01']
-#     X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
-#     y_train = train['거래금액(만원)']
-#     X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
-#     y_test = test['거래금액(만원)']
+# 결정트리 모델
+def dct():
+    datas = handle_preprocessing()
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
 
-#     models = []
-#     for i in range(0,5):
-#         if i==0:
-#             continue
-#         model = RandomForestRegressor(n_estimators=150,max_depth=4)
-#         model.fit(X_train,y_train)
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = DecisionTreeClassifier(random_state=i)
+        model.fit(X_train,y_train)
 
-#         pred=model.predict(X_test)
-#         rmse = mean_squared_error(y_test,pred)**0.5
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
         
-#         models.append(rmse)
+        models.append(rmse)
 
-#     st.write(models)
+    st.write(models)
 
-# # XGBoost 모델
+# XGBoost 모델
+def xgb():
+    datas = handle_preprocessing()
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
 
-# def RdForest():
-#     datas = handle_preprocessing()
-#     train = datas.loc[datas.index < '2023-01-01']
-#     test = datas.loc[datas.index >= '2023-01-01']
-#     X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
-#     y_train = train['거래금액(만원)']
-#     X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
-#     y_test = test['거래금액(만원)']
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = XGBRegressor(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=100)
+        model.fit(X_train,y_train)
 
-#     models = []
-#     for i in range(0,5):
-#         if i==0:
-#             continue
-#         model = RandomForestRegressor(n_estimators=150,max_depth=4)
-#         model.fit(X_train,y_train)
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        models.append(rmse)
 
-#         pred=model.predict(X_test)
-#         rmse = mean_squared_error(y_test,pred)**0.5
-#         models.append(rmse)
-
-#     st.write(models)
+    st.write(models)
 
 # LGBM 모델
-
 def lgbm():
     datas = handle_preprocessing()
     train = datas.loc[datas.index < '2023-01-01']
@@ -156,7 +188,6 @@ def lgbm():
         models.append(rmse)
 
     st.write(models)
-
 
 
 
