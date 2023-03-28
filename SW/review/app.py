@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
-
+import lightgbm as lgb
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
 
@@ -60,8 +60,8 @@ def knn():
 
     st.write(models)
 
-# 랜덤포레스트 모델
 
+# 랜덤포레스트 모델
 def RdForest():
     datas = handle_preprocessing()
     train = datas.loc[datas.index < '2023-01-01']
@@ -84,6 +84,81 @@ def RdForest():
         models.append(rmse)
 
     st.write(models)
+
+# # 결정트리 모델
+# def RdForest():
+#     datas = handle_preprocessing()
+#     train = datas.loc[datas.index < '2023-01-01']
+#     test = datas.loc[datas.index >= '2023-01-01']
+#     X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+#     y_train = train['거래금액(만원)']
+#     X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+#     y_test = test['거래금액(만원)']
+
+#     models = []
+#     for i in range(0,5):
+#         if i==0:
+#             continue
+#         model = RandomForestRegressor(n_estimators=150,max_depth=4)
+#         model.fit(X_train,y_train)
+
+#         pred=model.predict(X_test)
+#         rmse = mean_squared_error(y_test,pred)**0.5
+        
+#         models.append(rmse)
+
+#     st.write(models)
+
+# # XGBoost 모델
+
+# def RdForest():
+#     datas = handle_preprocessing()
+#     train = datas.loc[datas.index < '2023-01-01']
+#     test = datas.loc[datas.index >= '2023-01-01']
+#     X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+#     y_train = train['거래금액(만원)']
+#     X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+#     y_test = test['거래금액(만원)']
+
+#     models = []
+#     for i in range(0,5):
+#         if i==0:
+#             continue
+#         model = RandomForestRegressor(n_estimators=150,max_depth=4)
+#         model.fit(X_train,y_train)
+
+#         pred=model.predict(X_test)
+#         rmse = mean_squared_error(y_test,pred)**0.5
+#         models.append(rmse)
+
+#     st.write(models)
+
+# LGBM 모델
+
+def lgbm():
+    datas = handle_preprocessing()
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
+
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
+        model.fit(X_train,y_train)
+
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        models.append(rmse)
+
+    st.write(models)
+
+
+
 
 if __name__ == '__main__':
     main()
