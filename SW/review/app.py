@@ -5,8 +5,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
-import xgboost
-import lightgbm
+import xgboost as xgb
+import lightgbm as lgb
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
 
@@ -157,7 +157,7 @@ def xgb():
     for i in range(0,5):
         if i==0:
             continue
-        model = XGBRegressor(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=100)
+        model = xgb.XGBRegressor(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=100)
         model.fit(X_train,y_train)
 
         pred=model.predict(X_test)
@@ -180,7 +180,7 @@ def lgbm():
     for i in range(0,5):
         if i==0:
             continue
-        model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
+        model = lgb.LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
         model.fit(X_train,y_train)
 
         pred=model.predict(X_test)
