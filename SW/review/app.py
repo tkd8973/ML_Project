@@ -28,12 +28,11 @@ def sidebar() :
     town_choice = st.selectbox(label_town_list, get_town_list(city_choice, gu_choice),
     key='town')
     vl = get_village_list(city_choice, gu_choice, town_choice)
-    if vl:
+    if vl.any():
         village_choice = st.selectbox(label_town_list, vl, key='village')
-        st.write(vl)
+
     else:
         st.session_state['village'] = ''
-
 
 def contents():
     # st.write(get_filtered_data())
