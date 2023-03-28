@@ -115,13 +115,13 @@ with tab0:
 
 
 with tab1:
-    tab1.subheader("📈KNN")
+    tab1.subheader("📈KNN📈")
     tab1.write()
     col_(2)
     
          
 with tab2:
-    tab2.subheader("Decision Tree")
+    tab2.subheader("🌲Decision Tree🌲")
     tab2.write()
     col_(4)
 
