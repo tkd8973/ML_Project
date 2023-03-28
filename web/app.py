@@ -8,7 +8,7 @@ import datetime
 # xgb_model = xgb.XGBRegressor()
 
 
-title = "🏢 아파트 실거래가 예측"
+title = "🏢 반포자이 사줘"
 text = "(2022년 3월 - 2023년 2월)"
 
 st.markdown(f"<div style='font-weight:bold; font-size:35px; text-align:center'>{title}</div>", unsafe_allow_html=True)
@@ -137,7 +137,7 @@ with tab5:
 
 
     '''
-    ### Team
+    ### 집사줘😋
     | 이름 | 역할 | 모델링 |
     | :---: | :---: | :---: |
     | 서상원 | **팀장**, 발표, 데이터 수집 및 전처리, Streamlit, ML | KNN |
