@@ -81,7 +81,7 @@ with tab0:
 
     with col1 :
         # column 1 에 담을 내용
-        area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
+        area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
@@ -90,7 +90,7 @@ with tab0:
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
             ('중개거래', '직거래'))
 
-        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
 
 
     with col2 :
