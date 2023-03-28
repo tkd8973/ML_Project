@@ -90,7 +90,7 @@ def col_(i):
 
     with col2 :
         # column 2 에 담을 내용
-        st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1,key=i+1)
+        st.slider('건축 년도를 선택해 주세요', 1940, 2023,step=1,key=i+1)
         # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
