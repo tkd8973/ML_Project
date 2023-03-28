@@ -95,7 +95,7 @@ def col_(i):
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
-        if st.button('현재 금리 적용'):
+        if st.button('현재 금리 적용', key=21+i):
             today = datetime.date.today()
             st.write(f'{today}')
         else:
