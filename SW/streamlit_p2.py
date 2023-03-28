@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import data
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsRegressor
 
 df = data.read_data()
 
@@ -53,7 +56,16 @@ def Pre(datas):
     datas.loc[((datas.index >= '2022-11-24')& (datas.index < '2023-01-13')), '금리'] = 3.25
     datas.loc[((datas.index >= '2023-01-13')), '금리'] = 3.5
     st.dataframe(datas)
+
     return data
+
+def knn(datas):
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평단가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평단가'],axis=1)
+    y_test = test['거래금액(만원)']
 
 df = side_bar(df)
 data = Pre(df)
