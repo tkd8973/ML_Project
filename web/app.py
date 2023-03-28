@@ -110,9 +110,11 @@ def col_():
         st.write("")
 
 
+
 with tab1:
     tab1.subheader("📈KNN")
     tab1.write()
+    col_()
     
          
 with tab2:
