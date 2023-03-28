@@ -76,10 +76,6 @@ tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Linear Regression", "KNN", "Decis
 with tab0:
     tab0.subheader("Linear Regression")
     st.write()
-    '''
-    ⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️
-    ---
-    '''
 
     
     col1,col2 = st.columns([1,1])
@@ -87,21 +83,20 @@ with tab0:
 
     with col1 :
         # column 1 에 담을 내용
-        st.info('자치구별 동물 병원수 입니다.', icon="ℹ️")
+        area = st.slider('전용 면적을 선택해 주세요', 0, 130, 25)
+        st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
+        st.info('면적 선택', icon="ℹ️")
+
         
-        st.info('자치구별 동물 미용업체수 입니다.', icon="ℹ️")
-
-        st.info('자치구별 반려동물 보유비율입니다.', icon="ℹ️")
-
+        st.info('거래 유형 선택(중개거래, 직거래)', icon="ℹ️")
 
 
     with col2 :
         # column 2 에 담을 내용
-        st.info('자치구별 동물 위탁시설 수 입니다.', icon="ℹ️")
+        st.info('건축 년도 선택', icon="ℹ️")
         
-        st.info('자치구별 공원 시설 수 입니다.', icon="ℹ️")
+        st.info('금리 적용', icon="ℹ️")
 
-        st.info('자치구별 종합 순위 입니다.', icon="ℹ️")
 
 
 
