@@ -45,8 +45,6 @@ def side_bar(df1) :
     
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     result.index = np.arange(1,len(result) + 1)
-    
-    st.dataframe(result)
 
     return result
 
@@ -65,6 +63,7 @@ def Pre(datas):
     datas['거래유형'] = datas['거래유형'].apply(lambda x:0 if x=='중개거래' else 1)
     datas.dropna(inplace=True)
 
+    st.dataframe(datas)
     return data
 
 df = side_bar(df)
