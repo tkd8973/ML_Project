@@ -41,4 +41,5 @@ def get_village_list(city_choice, gu_choice, town_choice):
         ]
     if len(filtered.str.split(expand=True).columns) < 4:
         return []
+        
     return get_unique_list(filtered, 3)
