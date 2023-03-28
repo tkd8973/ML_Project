@@ -152,7 +152,7 @@ with tab3:
     > [Github](https://github.com/tkd8973/Data_Visualization) 
     '''
 
-with tab4
+with tab4:
     tab4.subheader("🖇️ Link Tab")
     tab4.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
 
