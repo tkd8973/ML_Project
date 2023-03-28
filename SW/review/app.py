@@ -1,11 +1,12 @@
 import streamlit as st
 
 def main():
-    side_bar()
+    with st.sidebar: sidebar()
     contents()
 
-def side_bar():
-    pass
+def sidebar() :
+    title =  '지역을 선택해주세요.'
+    st.title(title)
 
 def contents():
     pass
