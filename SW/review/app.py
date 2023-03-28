@@ -38,6 +38,8 @@ def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
+    with tab0:
+        background()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
         lr() 
@@ -58,6 +60,8 @@ def contents():
         lgbm()
         
 
+def background():
+    st.dataframe(handle_preprocessing)
 
 # lr 모델
 def lr():
