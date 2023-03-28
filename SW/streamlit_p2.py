@@ -62,11 +62,11 @@ def Pre(datas):
     datas.set_index('date',inplace=True)
     datas['거래유형'] = datas['거래유형'].apply(lambda x:0 if x=='중개거래' else 1)
     datas.dropna(inplace=True)
-    df['금리'] = 0.0
-    df.loc[((df.index >= '20220825')& (df.index < '20221012')), '금리'] = 2.5
-    df.loc[((df.index >= '20221012')& (df.index < '20221124')), '금리'] = 3.0
-    df.loc[((df.index >= '20221124')& (df.index < '20230113')), '금리'] = 3.25
-    df.loc[((df.index >= '20220113')), '금리'] = 3.5
+    datas['금리'] = 0.0
+    datas.loc[((datas.index >= '20220825')& (datas.index < '20221012')), '금리'] = 2.5
+    datas.loc[((datas.index >= '20221012')& (datas.index < '20221124')), '금리'] = 3.0
+    datas.loc[((datas.index >= '20221124')& (datas.index < '20230113')), '금리'] = 3.25
+    datas.loc[((datas.index >= '20220113')), '금리'] = 3.5
     st.dataframe(datas)
     return data
 
