@@ -13,7 +13,7 @@ def sidebar() :
     label_town_list = '읍/면/동 선택'
     city_choice = st.selectbox(label_city_list, get_city_list())
     gu_choice = st.selectbox(label_gu_list, get_gu_list(city_choice))
-    st.selectbox(label_town_list, get_town_list(gu_choice))
+    st.selectbox(label_town_list, get_town_list(city_choice, gu_choice))
 
 def contents():
     pass
