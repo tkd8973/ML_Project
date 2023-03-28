@@ -72,11 +72,11 @@ tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", 
 
     
 
-def col_():
+def col_(i):
     col1,col2 = st.columns([1, 1])
     with col1 :
         # column 1 에 담을 내용
-        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25,key ='1')
+        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25,key =i)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
@@ -90,7 +90,7 @@ def col_():
 
     with col2 :
         # column 2 에 담을 내용
-        st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1,key='2')
+        st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1,i+1)
         # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
@@ -110,36 +110,36 @@ def col_():
 with tab0:
     tab0.subheader("Linear Regression")
     st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
-    col_()
+    col_(0)
 
 
 with tab1:
     tab1.subheader("📈KNN")
     tab1.write()
-    col_()
+    col_(2)
     
          
 with tab2:
     tab2.subheader("Decision Tree")
     tab2.write()
-    col_()
+    col_(4)
 
     
 with tab3:
     tab3.subheader("Random Forest")
     tab3.write("")
-    col_()
+    col_(6)
 
 with tab4:
     tab4.subheader("XGBoost")
     tab4.write("")
-    col_()
+    col_(8)
 
 
 with tab5:
     tab5.subheader("LightGBM")
     tab5.write("")
-    col_()
+    col_(10)
 
 with tab6:
     tab6.subheader("집사줘 😋")
