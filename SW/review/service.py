@@ -23,7 +23,6 @@ def handle_preprocessing():
     bb=datas['계약일'].astype(str)
     datas['date'] = aa+bb
     datas['date'] = pd.to_datetime(datas['date'], format='%Y%m%d')
-    datas['금리'] = datas.apply(lambda x: 3.25 if ((x['계약년월']== 202301) & (x['계약일'] < 13)) else 3.5, axis=1)
     datas.drop(['계약년월','계약일'],axis=1,inplace=True)
     datas.sort_values('date',ascending = True, inplace=True)
     datas.set_index('date',inplace=True)

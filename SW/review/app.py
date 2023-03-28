@@ -4,10 +4,10 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
-from xgboost import XGBRegressor
+from sklearn.tree import Decisor
 import xgboost as xgb
-import lightgbm as lgb
+import lightgbm as lgbionTreeRegressor
+from xgboost import XGBRegress
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
 
@@ -38,7 +38,7 @@ def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
-    with tab1: lr()
+    with tab1: lr() 
     with tab2: knn()
     with tab3: dct()
     with tab4: rdf()
@@ -67,8 +67,7 @@ def lr():
         rmse = mean_squared_error(y_test,pred)**0.5
         
         models.append(rmse)
-
-    st.write(models)
+    st.write('모델의 RMSE 값',models)
 
 
 # knn 모델
