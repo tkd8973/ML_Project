@@ -6,7 +6,7 @@ import data
 df_apt1,df_apt2,df_apt9,df_apt10,df_apt11,df_apt12 = data.read_data()
 
 # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
-def side_bar(df1,df2) :
+def side_bar(df1) :
     s_bar = st.sidebar
     s_bar.title('지역을 선택해주세요.')
 
