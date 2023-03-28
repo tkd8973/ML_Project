@@ -6,7 +6,7 @@ import os
 import datetime
 # import xgboost as xgb
 # xgb_model = xgb.XGBRegressor()
-global count
+count = 0
 
 title = "🏢 반포자이 사조"
 text = "(2022년 3월 - 2023년 2월)"
@@ -27,6 +27,7 @@ df_apt1["평단가"] = (df_apt1["거래금액(만원)"] / df_apt1["전용면적(
 
 # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
 def side_bar(df1,df2) :
+
     s_bar = st.sidebar
     s_bar.title('지역을 선택해주세요.')
 
@@ -72,6 +73,7 @@ tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", 
     
 
 def col_():
+    global count
     count+=1
     col1,col2 = st.columns([1, 1])
     with col1 :
