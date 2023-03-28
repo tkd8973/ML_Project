@@ -82,8 +82,7 @@ with tab0:
     with col1 :
         # column 1 에 담을 내용
         # 슬라이더의 색상을 변경하는 CSS 코드
-        slider_style = 
-        """
+        slider_style = """
             <style>
                 /* 슬라이더의 배경색을 노란색으로 변경 */
                 .css-1trkdpw {
