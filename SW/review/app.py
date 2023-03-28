@@ -12,7 +12,7 @@ def sidebar() :
     st.write(__file__)
     st.write(os.path.realpath(__file__))
     st.write(os.path.abspath(__file__))
-    st.write(glob.glob('static/*.csv'))
+    st.write(glob.glob('/app/ml_project/SW/review/static/*.csv'))
 
 def contents():
     pass
