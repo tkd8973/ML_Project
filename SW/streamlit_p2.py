@@ -46,3 +46,5 @@ def side_bar(df1,df2) :
     return Jan_result, Feb_result
 
 df1,df2 = side_bar(df_apt1,df_apt2)
+
+st.dataframe(df1.columns)
