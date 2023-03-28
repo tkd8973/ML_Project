@@ -39,10 +39,11 @@ def side_bar(df1) :
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
     
     return Jan_result
+
+def hanlde_data(data):
 df_apt1 = side_bar(df_apt1)
 columns = df_apt1.columns
-result = pd.concat([df_apt9[columns],df_apt10[columns],\
-df_apt11[columns],df_apt12[columns],df_apt1[columns],df_apt2[columns]])
+
 
 st.dataframe(df_apt9[columns])
 st.dataframe(df_apt1)
