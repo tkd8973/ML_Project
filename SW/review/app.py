@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
+from sklearn.linear_model import LinearRegression
 import xgboost as xgb
 import lightgbm as lgb
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
@@ -47,28 +48,27 @@ def contents():
 
 # lr 모델
 def lr():
-    pass
-    # datas = handle_preprocessing()
-    # train = datas.loc[datas.index < '2023-01-01']
-    # test = datas.loc[datas.index >= '2023-01-01']
-    # X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
-    # y_train = train['거래금액(만원)']
-    # X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
-    # y_test = test['거래금액(만원)']
+    datas = handle_preprocessing()
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
 
-    # models = []
-    # for i in range(0,5):
-    #     if i==0:
-    #         continue
-    #     model = LinearRegression()
-    #     model.fit(X_train,y_train)
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = LinearRegression()
+        model.fit(X_train,y_train)
 
-    #     pred=model.predict(X_test)
-    #     rmse = mean_squared_error(y_test,pred)**0.5
+        pred= model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
         
-    #     models.append(rmse)
+        models.append(rmse)
 
-    # st.write(models)
+    st.write(models)
 
 
 # knn 모델
