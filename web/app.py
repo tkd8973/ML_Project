@@ -10,6 +10,7 @@ import datetime
 
 title = "🏢 아파트 실거래가 예측"
 text = "(2022년 3월 - 2023년 2월)"
+st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
 st.markdown(f"<div style='font-weight:bold; font-size:35px; text-align:center'>{title}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center; font-size:20px'>{text}</div>", unsafe_allow_html=True)
