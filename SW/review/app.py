@@ -28,7 +28,7 @@ def sidebar() :
     town_choice = st.selectbox(label_town_list, get_town_list(city_choice, gu_choice),
     key='town')
     vl = get_village_list(city_choice, gu_choice, town_choice)
-    if vl.any():
+    if vl:
         village_choice = st.selectbox(label_town_list, vl, key='village')
 
     else:
