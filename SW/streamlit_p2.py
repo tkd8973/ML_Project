@@ -5,6 +5,8 @@ import data
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
+from sklearn.ensemble import RandomForestRegressor
+
 
 df = data.read_data()
 
@@ -84,3 +86,30 @@ def knn(datas):
 df = side_bar(df)
 data = Pre(df)
 knn(data)
+
+def RdForest(datas):
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
+
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = RandomForestRegressor(n_neighbors=i,weights='distance')
+        model.fit(X_train,y_train)
+
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        
+        models.append(rmse)
+
+    st.write(models)
+
+df = side_bar(df)
+data = Pre(df)
+print(data)
+RdForest(data)
