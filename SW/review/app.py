@@ -1,7 +1,5 @@
 import streamlit as st
-import glob
-import os
-import pandas as pd 
+from data import read_data
 
 def main():
     with st.sidebar: sidebar()
@@ -10,8 +8,8 @@ def main():
 def sidebar() :
     title =  '지역을 선택해주세요.'
     st.title(title)
-    df = pd.concat([pd.read_csv(p) for p in sorted(glob.glob('/app/ml_project/SW/review/static/*.csv'))])    
-    st.write(df)
+      
+    st.write(read_data())
 
 def contents():
     pass
