@@ -67,43 +67,41 @@ def side_bar(df1,df2) :
 df1,df2 = side_bar(df_apt1,df_apt2)
 
 
-
 tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM"])
 
 with tab0:
     tab0.subheader("Linear Regression")
     st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
-
     
-    col1,col2 = st.columns([0.8, 0.8])
+    col1,col2 = st.columns([1, 1])
     # 공간을 1:1 으로 분할하여 col1과 col2라는 이름을 가진 컬럼을 생성
 
-    with col1 :
-        # column 1 에 담을 내용
-        area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
-        # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
+with col1 :
+    # column 1 에 담을 내용
+    area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
+    # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
-        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
-        genre = st.radio(
-            "거래 유형을 선택해 주세요 (중개거래, 직거래)",
-            ('중개거래', '직거래'))
+    genre = st.radio(
+        "거래 유형을 선택해 주세요 (중개거래, 직거래)",
+        ('중개거래', '직거래'))
 
-        st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
 
 
-    with col2 :
-        # column 2 에 담을 내용
-        year_of_construction = st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
-        # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
+with col2 :
+    # column 2 에 담을 내용
+    year_of_construction = st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
+    # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
 
-        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
-        if st.button('현재 금리 적용'):
-            today = datetime.date.today()
-            st.write(f'{today}')
-        else:
-            today = datetime.date.today()
+    if st.button('현재 금리 적용'):
+        today = datetime.date.today()
+        st.write(f'{today}')
+    else:
+        today = datetime.date.today()
 
 if st.button('예측'):
     st.write("아파트 실거래가 예측 값 입니다")
