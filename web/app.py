@@ -3,15 +3,19 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import datetime
 # import xgboost as xgb
 # xgb_model = xgb.XGBRegressor()
 
 
-st.write(
-    """
-    ## 🏢 아파트 실거래가 예측
-    """
-)
+title = "🏢 아파트 실거래가 예측"
+text = "(2022년 3월 - 2023년 2월)"
+# year_text = "연도 선택"
+# chart_text = "차트 선택"
+
+st.markdown(f"<div style='font-weight:bold; font-size:40px; text-align:center'>{title}</div>", unsafe_allow_html=True)
+st.markdown(f"<div style='text-align:center; font-size:24px'>{text}</div>", unsafe_allow_html=True)
+st.markdown("---")
 
 # st.sidebar.title('선택해라')
 # selected_region = st.sidebar.selectbox("행정구역 선택해라", city_list
@@ -97,9 +101,6 @@ with tab0:
         # column 2 에 담을 내용
         year_of_construction = st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
         # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
-        
-
-        import datetime
 
         if st.button('현재 금리 적용'):
             today = datetime.date.today()
