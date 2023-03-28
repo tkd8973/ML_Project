@@ -58,7 +58,7 @@ def Pre(datas):
     datas['date'] = pd.to_datetime(datas['date'], format='%Y%m%d')
     datas['금리'] = datas.apply(lambda x: 3.25 if ((x['계약년월']== 202301) & (x['계약일'] < 13)) else 3.5, axis=1)
     datas.drop(['계약년월','계약일'],axis=1,inplace=True)
-    datas.sort_values('date',acsending = True, inplace=True)
+    datas.sort_values('date',ascending = True, inplace=True)
     datas.set_index('date',inplace=True)
     datas['거래유형'] = datas['거래유형'].apply(lambda x:0 if x=='중개거래' else 1)
     datas.dropna(inplace=True)
