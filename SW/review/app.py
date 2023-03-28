@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
-import decision_tree
+from sklearn.tree import DecisionTreeRegressor
 import xgboost as xgb
 import lightgbm as lgb
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
