@@ -76,7 +76,7 @@ def col_(i):
     col1,col2 = st.columns([1, 1])
     with col1 :
         # column 1 에 담을 내용
-        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0,key =i)
+        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0,key =i)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
@@ -90,7 +90,7 @@ def col_(i):
 
     with col2 :
         # column 2 에 담을 내용
-        st.slider('건축 년도를 선택해 주세요', 1940, 2023,step=1,key=i+1)
+        st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1,key=i+1)
         # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
