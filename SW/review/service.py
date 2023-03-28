@@ -1,5 +1,6 @@
 import streamlit as st
 from data import read_data, check_contain
+import pandas as pd
 
 def get_filtered_data():
     df = read_data()
