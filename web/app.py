@@ -76,13 +76,13 @@ with tab0:
     st.write()
 
     
-    col1,col2 = st.columns([1,1])
+    col1,col2 = st.columns([1, 1])
     # 공간을 1:1 으로 분할하여 col1과 col2라는 이름을 가진 컬럼을 생성
 
     with col1 :
         # column 1 에 담을 내용
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
-        st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
+        # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         genre = st.radio(
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
