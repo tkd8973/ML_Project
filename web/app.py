@@ -84,6 +84,8 @@ with tab0:
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
+        st.markdown(f"<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
+        
         genre = st.radio(
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
             ('중개거래', '직거래'))
