@@ -5,26 +5,34 @@ import data
 
 df = data.read_data()
 
-# 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
+def Pre(datas):
+    data=[]
+    datas['거래금액(만원)']=(datas['거래금액(만원)'].str.replace(',','')).str.strip().astype(int)
+    datas["평당가"] = (datas["거래금액(만원)"] / datas["전용면적(㎡)"]*0.3025) # 평당가 계산하여 새로운 컬럼 추가
+    aa=datas['계약년월'].astype(str)
+    bb=datas['계약일'].astype(str)
+    datas['date'] = aa+bb
+    datas['date'] = pd.to_datetime(datas['date'], format='%Y%m%d')
+    datas['금리'] = datas.apply(lambda x: 3.25 if ((x['계약년월']== 202301) & (x['계약일'] < 13)) else 3.5, axis=1)
+    datas.drop(['계약년월','계약일'],axis=1,inplace=True)
+    datas['거래유형'] = datas['거래유형'].apply(lambda x:0 if x=='중개거래' else 1)
+    datas.dropna(inplace=True)
+
+    return data
+
 def side_bar(df1) :
     s_bar = st.sidebar
     s_bar.title('지역을 선택해주세요.')
 
-    # area에 df에서 열 중에서 중복된 값들을 제외하고 리스트로 변환
-    # 시/도 선택
-
     city_list = df1['시군구'].apply(lambda x: x.split()[0]).unique()
     city_choice = s_bar.selectbox('시/도 선택', city_list)
 
-    # 시/군/구 선택
     gu_list = df1['시군구'][df1['시군구'].str.contains(city_choice)].apply(lambda x: x.split()[1]).unique()
     gu_choice = s_bar.selectbox('시/군/구 선택', gu_list)
 
-    # 읍/면/동 선택
     town_list = df1['시군구'][df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice)].apply(lambda x: x.split()[2]).unique()
     town_choice = s_bar.selectbox('읍/면/동 선택', town_list)
     
-    # 리 선택
     try :
         village_list = df1['시군구'][df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice)].apply(lambda x: x.split()[3]).unique()
         village_choice = s_bar.selectbox('리 선택', village_list)
@@ -42,4 +50,22 @@ def side_bar(df1) :
 
     return result
 
+def Pre(datas):
+    data=[]
+    datas['거래금액(만원)']=(datas['거래금액(만원)'].str.replace(',','')).str.strip().astype(int)
+    datas["평당가"] = (datas["거래금액(만원)"] / datas["전용면적(㎡)"]*0.3025) # 평당가 계산하여 새로운 컬럼 추가
+    aa=datas['계약년월'].astype(str)
+    bb=datas['계약일'].astype(str)
+    datas['date'] = aa+bb
+    datas['date'] = pd.to_datetime(datas['date'], format='%Y%m%d')
+    datas['금리'] = datas.apply(lambda x: 3.25 if ((x['계약년월']== 202301) & (x['계약일'] < 13)) else 3.5, axis=1)
+    datas.drop(['계약년월','계약일'],axis=1,inplace=True)
+    datas.sort_values('date',inplace=True)
+    datas.set_index('date',inplace=True)
+    datas['거래유형'] = datas['거래유형'].apply(lambda x:0 if x=='중개거래' else 1)
+    datas.dropna(inplace=True)
+
+    return data
+
 df = side_bar(df)
+data = Pre(df)
