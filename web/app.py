@@ -91,7 +91,6 @@ with tab0:
         genre = st.radio(
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
             ('중개거래', '직거래'))
-
         if genre == '중개거래':
             st.write('중개거래를 선택하셨습니다.')
         else:
@@ -101,8 +100,16 @@ with tab0:
 
     with col2 :
         # column 2 에 담을 내용
+        year_of_construction = st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
+        st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
         st.info('건축 년도 선택', icon="ℹ️")
         
+
+        if st.button('현재 금리 적용'):
+            today = datetime.date.today()
+            st.write(today.strftime("%Y년 %m월 %d일"))
+        else:
+            st.write('예측이 불가합니다.')
         st.info('금리 적용', icon="ℹ️")
 
 
