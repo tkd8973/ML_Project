@@ -44,4 +44,5 @@ columns = df_apt1.columns
 result = pd.concat([df_apt9[columns],df_apt10[columns],\
 df_apt11[columns],df_apt12[columns],df_apt1[columns],df_apt2[columns]])
 
-st.dataframe(columns)
+st.dataframe(df_apt9[columns])
+st.dataframe(df_apt1)
