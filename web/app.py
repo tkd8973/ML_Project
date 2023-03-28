@@ -81,21 +81,40 @@ with tab0:
 
     with col1 :
         # column 1 에 담을 내용
-        st.markdown(
-                """
-                <style>
-                    /* 슬라이드바의 배경색과 프로그래스바의 색상 변경 */
-                    .css-1trkdpw {
-                        background-color: #C6E2FF;
-                    }
-                    .css-hby737 {
-                        background-color: #8B00FF;
-                    }
-                </style>
-                """,
-                unsafe_allow_html=True,
-            )
+        # 슬라이더의 색상을 변경하는 CSS 코드
+        slider_style = 
+        """
+            <style>
+                /* 슬라이더의 배경색을 노란색으로 변경 */
+                .css-1trkdpw {
+                    background-color: yellow;
+                }
+                /* 슬라이더의 프로그레스 바 색상을 빨간색으로 변경 */
+                .css-hby737 {
+                    background-color: red;
+                }
+            </style>
+        """
+
+        st.markdown(slider_style, unsafe_allow_html=True)
+
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
+
+        # st.markdown(
+        #         """
+        #         <style>
+        #             /* 슬라이드바의 배경색과 프로그래스바의 색상 변경 */
+        #             .css-1trkdpw {
+        #                 background-color: #C6E2FF;
+        #             }
+        #             .css-hby737 {
+        #                 background-color: #8B00FF;
+        #             }
+        #         </style>
+        #         """,
+        #         unsafe_allow_html=True,
+        #     )
+        # area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         genre = st.radio(
