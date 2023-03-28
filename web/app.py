@@ -142,7 +142,6 @@ with tab1:
          
 with tab2:
     tab2.subheader("Decision Tree")
-    datas.head()
     tab2.write()
 
     
