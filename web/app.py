@@ -9,7 +9,7 @@ import os
 
 st.write(
     """
-    ## 🏙️ 아파트 실거래가 예측
+    ## 🏢 아파트 실거래가 예측
     ---
     """
 )
@@ -74,25 +74,13 @@ df1,df2 = side_bar(df_apt1,df_apt2)
 tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM"])
 
 with tab0:
-    tab0.subheader("💸Linear Regression💸")
+    tab0.subheader("Linear Regression")
     st.write()
     '''
-    **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
+    ⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️
     ---
     '''
-    '''
-    ### Team
-    | 이름 | 역할 | 모델링 |
-    | :---: | :---: | :---: |
-    | 서상원 | **팀장**, 발표, 데이터 수집 및 전처리, Streamlit, ML | KNN |
-    | 조성훈 | 데이터 수집 및 전처리, ML | Decision Tree |
-    | 곽희범 | 데이터 수집 및 전처리, ML | Random Forest |
-    | 이영미 | 데이터 수집 및 전처리, ML | LightGBM |
-    | 한재원 | 발표, 데이터 수집 및 전처리, Streamlit, ML | XGBoost |
-    | 박상원 | 데이터 수집 및 전처리, ML | Linear Regression |
-    | 이영재 | 아이디어 제공 | |
-    | 최용재 | 아이디어 제공, 정보제공 | |
-    '''
+
     
     col1,col2 = st.columns([1,1])
     # 공간을 1:1 으로 분할하여 col1과 col2라는 이름을 가진 컬럼을 생성
@@ -114,8 +102,6 @@ with tab0:
         st.info('자치구별 공원 시설 수 입니다.', icon="ℹ️")
 
         st.info('자치구별 종합 순위 입니다.', icon="ℹ️")
-
-
 
 
 
@@ -150,36 +136,46 @@ with tab1:
         st.write("히트맵 인덱스가 날아가네요 자세한건 Colab에서")
          
 with tab2:
-    tab2.subheader("🗃 Data Tab")
+    tab2.subheader("Decision Tree")
     datas.head()
     tab2.write()
+
+    
+with tab3:
+    tab3.subheader("Random Forest")
+    tab3.write("")
+    st.write("")
+
+with tab4:
+    tab4.subheader("XGBoost")
+    tab4.write("")
+
+
+with tab5:
+    tab5.subheader("LightGBM")
+    tab5.write("")
+
+
+
+ '''
+    ### Team
+    | 이름 | 역할 | 모델링 |
+    | :---: | :---: | :---: |
+    | 서상원 | **팀장**, 발표, 데이터 수집 및 전처리, Streamlit, ML | KNN |
+    | 조성훈 | 데이터 수집 및 전처리, ML | Decision Tree |
+    | 곽희범 | 데이터 수집 및 전처리, ML | Random Forest |
+    | 이영미 | 데이터 수집 및 전처리, ML | LightGBM |
+    | 한재원 | 발표, 데이터 수집 및 전처리, Streamlit, ML | XGBoost |
+    | 박상원 | 데이터 수집 및 전처리, ML | Linear Regression |
+    | 이영재 | 아이디어 제공 | |
+    | 최용재 | 아이디어 제공, 정보제공 | |
+    '''
 
     '''
     ---
     ### 
-    * KDX2021_SSC_ONLINE_DATA
-    * 온라인쇼핑의 세부 업종별 소비 특징 데이터. '19.5월/'20.5월/'21.5월 기간에 대해 14개의 주요 온라인 쇼핑 업종의 연령/성별/구매시간대별 소비 건수를 집계한 데이터
-    > [데이터 다운로드](https://kdx.kr/data/view/31454)
-    * 데이터출처 : KDX 한국데이터거래소
+    * 아파트 실거래가 2022년 3월 ~ 2023년 2월까지의 데이터 입니다.
+    > [데이터 다운로드]()
+    * 데이터출처 : Dacon
     ---
     '''
-    
-with tab3:
-    tab3.subheader("🖇️ Link Tab")
-    tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
-    st.write()
-    '''
-    * colab링크
-    > [Colab](https://colab.research.google.com/drive/1hqqOwwSKjBi1zvcR3xalsBCklYpjx0vq?usp=sharing)
-    * Github링크
-    > [Github](https://github.com/tkd8973/Data_Visualization) 
-    '''
-
-with tab4:
-    tab4.subheader("🖇️ Link Tab")
-    tab4.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
-
-
-with tab5:
-    tab5.subheader("🖇️ Link Tab")
-    tab5.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
