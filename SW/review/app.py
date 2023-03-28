@@ -1,6 +1,6 @@
 import streamlit as st
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
-from service import get_filtered_data
+from service import get_filtered_data, handle_preprocessing
 
 def main():
     with st.sidebar: sidebar()
@@ -25,7 +25,8 @@ def sidebar() :
         st.session_state['village'] = ''
 
 def contents():
-    st.write(get_filtered_data())
+    # st.write(get_filtered_data())
+    st.write(handle_preprocessing())
 
 if __name__ == '__main__':
     main()
