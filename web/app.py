@@ -67,7 +67,7 @@ def side_bar(df1,df2) :
 df1,df2 = side_bar(df_apt1,df_apt2)
 
 
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM"])
+tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM", "Team"])
 
 with tab0:
     tab0.subheader("Linear Regression")
@@ -134,7 +134,9 @@ with tab5:
     tab5.subheader("LightGBM")
     tab5.write("")
 
-
+with tab1:
+    tab1.subheader("Team")
+    tab1.write("")
 
     '''
     ### 집사줘😋
