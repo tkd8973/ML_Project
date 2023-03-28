@@ -1,6 +1,7 @@
 import streamlit as st
 import glob
 import os
+import pandas as pd 
 
 def main():
     with st.sidebar: sidebar()
@@ -9,10 +10,8 @@ def main():
 def sidebar() :
     title =  '지역을 선택해주세요.'
     st.title(title)
-    st.write(__file__)
-    st.write(os.path.realpath(__file__))
-    st.write(os.path.abspath(__file__))
-    st.write(glob.glob('/app/ml_project/SW/review/static/*.csv'))
+    df = pd.concat([pd.read_csv(p) for p in sorted(glob.glob('/app/ml_project/SW/review/static/*.csv'))])    
+    st.write(df)
 
 def contents():
     pass
