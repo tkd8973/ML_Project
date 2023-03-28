@@ -29,22 +29,20 @@ def side_bar(df1,df2) :
         village_list = df1['시군구'][df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice)].apply(lambda x: x.split()[3]).unique()
         village_choice = s_bar.selectbox('리 선택', village_list)
         Jan_result = df1[df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice) & df1['시군구'].str.contains(village_choice)]
-        Feb_result = df2[df2['시군구'].str.contains(city_choice) & df2['시군구'].str.contains(gu_choice) & df2['시군구'].str.contains(town_choice) & df2['시군구'].str.contains(village_choice)]
     except :
         Jan_result = df1[df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice)]
-        Feb_result = df2[df2['시군구'].str.contains(city_choice) & df2['시군구'].str.contains(gu_choice) & df2['시군구'].str.contains(town_choice)]
-
+        
     
     # 선택된 지역의 데이터만 추출
     
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
-    Feb_result.index = np.arange(1,len(Feb_result) + 1)
-    result = pd.concat([Jan_result,Feb_result])
-    st.dataframe(result)
+    
+    st.dataframe(Jan_result)
 
-    return Jan_result, Feb_result
+    return Jan_result
+df_apt1 = side_bar(df_apt1)
+columns = df_apt1.columns
+pd.concat([df_apt9[columns],df_apt10[columns],\
+df_apt11[columns],df_apt12[columns],df_apt1[columns],df_apt2[columns]])
 
-df1,df2 = side_bar(df_apt1,df_apt2)
-
-st.dataframe(df_apt10[df1.columns])
