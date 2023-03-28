@@ -15,7 +15,6 @@ text = "(2022년 3월 - 2023년 2월)"
 
 st.markdown(f"<div style='font-weight:bold; font-size:35px; text-align:center'>{title}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center; font-size:20px'>{text}</div>", unsafe_allow_html=True)
-st.markdown("---")
 
 # st.sidebar.title('선택해라')
 # selected_region = st.sidebar.selectbox("행정구역 선택해라", city_list
