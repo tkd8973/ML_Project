@@ -56,7 +56,7 @@ def Pre(datas):
     datas.loc[((datas.index >= '2023-01-13')), '금리'] = 3.5
     st.dataframe(datas)
 
-    return data
+    return datas
 
 def knn(datas):
     train = datas.loc[datas.index < '2023-01-01']
@@ -65,6 +65,22 @@ def knn(datas):
     y_train = train['거래금액(만원)']
     X_test = test.drop(['시군구','거래금액(만원)','평단가'],axis=1)
     y_test = test['거래금액(만원)']
+    
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = KNeighborsRegressor(n_neighbors=i,weights='distance')
+        model.fit(X_train,y_train)
+
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        
+        models.append(rmse)
+
+    st.write(models)
+
 
 df = side_bar(df)
 data = Pre(df)
+knn(data)
