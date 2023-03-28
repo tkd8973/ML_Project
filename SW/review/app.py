@@ -38,12 +38,25 @@ def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
-    with tab1: lr() 
-    with tab2: knn()
-    with tab3: dct()
-    with tab4: rdf()
-    with tab5: xgb()
-    with tab6: lgbm()
+    with tab1: 
+        tab1.subheader("📈Linear Regression📈")
+        lr() 
+    with tab2: 
+        tab2.subheader("🤝KNN🤝")
+        knn()
+    with tab3:
+        tab3.subheader("🌲Decision Tree🌲") 
+        dct()
+    with tab4:
+        tab4.subheader("🌳Random Forest🌳") 
+        rdf()
+    with tab5:
+        tab5.subheader("💪XGBoost💪") 
+        xgb()
+    with tab6: 
+        tab6.subheader("⚡️LightGBM⚡️")
+        lgbm()
+        
 
 
 # lr 모델
