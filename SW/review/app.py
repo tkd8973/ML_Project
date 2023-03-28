@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 import xgboost as xgb
 import lightgbm as lgbionTreeRegressor
-from xgboost import XGBRegress
+from xgboost import XGBRegressor
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
 
