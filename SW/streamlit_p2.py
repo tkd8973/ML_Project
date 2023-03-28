@@ -28,18 +28,18 @@ def side_bar(df1) :
     try :
         village_list = df1['시군구'][df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice)].apply(lambda x: x.split()[3]).unique()
         village_choice = s_bar.selectbox('리 선택', village_list)
-        Jan_result = df1[df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice) & df1['시군구'].str.contains(village_choice)]
+        result = df1[df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice) & df1['시군구'].str.contains(village_choice)]
     except :
-        Jan_result = df1[df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice)]
+        result = df1[df1['시군구'].str.contains(city_choice) & df1['시군구'].str.contains(gu_choice) & df1['시군구'].str.contains(town_choice)]
         
     
     # 선택된 지역의 데이터만 추출
     
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
-    Jan_result.index = np.arange(1,len(Jan_result) + 1)
+    result.index = np.arange(1,len(result) + 1)
     
-    st.dataframe(Jan_result)
+    st.dataframe(result)
 
-    return Jan_result
+    return result
 
 df = side_bar(df)
