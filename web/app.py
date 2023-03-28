@@ -116,34 +116,28 @@ with tab0:
 
 with tab1:
     tab1.subheader("🤝KNN🤝")
-    tab1.write()
     col_(2)
     
          
 with tab2:
     tab2.subheader("🌲Decision Tree🌲")
-    tab2.write()
     col_(4)
 
     
 with tab3:
     tab3.subheader("🌳Random Forest🌳")
-    tab3.write("")
     col_(6)
 
 with tab4:
     tab4.subheader("💪XGBoost💪")
-    tab4.write("")
     col_(8)
 
 
 with tab5:
     tab5.subheader("⚡️LightGBM⚡️")
-    tab5.write("")
     col_(10)
 
 with tab6:
-    tab6.write("")
 
 
     '''
