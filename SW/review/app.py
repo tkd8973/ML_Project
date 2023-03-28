@@ -85,6 +85,7 @@ def lr():
         
         models.append(rmse)
     st.write('모델의 RMSE 값',models)
+    st.write('모델의 예측 값',pred)
 
 
 # knn 모델
@@ -110,7 +111,7 @@ def knn():
         models.append(rmse)
 
     st.write(models)
-
+    st.write('모델의 예측 값',pred)
 
 # 랜덤포레스트 모델
 def rdf():
@@ -135,6 +136,7 @@ def rdf():
         models.append(rmse)
 
     st.write(models)
+    st.write('모델의 예측 값',pred)
 
 # 결정트리 모델
 def dct():
@@ -159,7 +161,7 @@ def dct():
         models.append(rmse)
 
     st.write(models)
-
+    st.write('모델의 예측 값',pred)
 # XGBoost 모델
 def xgb():
     datas = handle_preprocessing()
@@ -182,6 +184,7 @@ def xgb():
         models.append(rmse)
 
     st.write(models)
+    st.write('모델의 예측 값',pred)
 
 # LGBM 모델
 def lgbm():
@@ -205,7 +208,7 @@ def lgbm():
         models.append(rmse)
 
     st.write(models)
-
+    st.write('모델의 예측 값',pred)
 
 if __name__ == '__main__':
     main()
