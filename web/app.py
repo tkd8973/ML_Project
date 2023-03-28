@@ -3,20 +3,19 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import datetime
+
 # import xgboost as xgb
 # xgb_model = xgb.XGBRegressor()
+count = 0
 
+title = "🏢 반포자이 사조"
+text = "(2022년 3월 - 2023년 2월)"
 
-st.write(
-    """
-    ## 🏙️ 아파트 실거래가 예측
-    ---
-    """
-)
+st.markdown(f"<div style='font-weight:bold; font-size:35px; text-align:center'>{title}</div>", unsafe_allow_html=True)
+st.markdown(f"<div style='text-align:center; font-size:20px'>{text}</div>", unsafe_allow_html=True)
 
-# st.sidebar.title('선택해라')
-# selected_region = st.sidebar.selectbox("행정구역 선택해라", city_list
-# )
+st.markdown(f"<div style='margin-bottom: 25px;'></div>", unsafe_allow_html=True)
 
 
 df_apt1 = pd.read_csv('Data/아파트_매매__실거래가_20230321134107_1월.csv')
@@ -29,6 +28,7 @@ df_apt1["평단가"] = (df_apt1["거래금액(만원)"] / df_apt1["전용면적(
 
 # 사이드바 // 메인에서 df의 값을 받아온다. main -> create_df -> side_bar
 def side_bar(df1,df2) :
+
     s_bar = st.sidebar
     s_bar.title('지역을 선택해주세요.')
 
@@ -58,30 +58,90 @@ def side_bar(df1,df2) :
 
     
     # 선택된 지역의 데이터만 추출
-    
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
     Feb_result.index = np.arange(1,len(Feb_result) + 1)
     result = pd.concat([Jan_result,Feb_result])
-    st.dataframe(result)
+    # st.dataframe(result)
 
     return Jan_result, Feb_result
 
 df1,df2 = side_bar(df_apt1,df_apt2)
 
 
+tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM", "Team"])
 
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM"])
+    
+
+def col_(i):
+    col1,col2 = st.columns([1, 1])
+    with col1 :
+        # column 1 에 담을 내용
+        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0,key =i)
+        # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
+
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+
+        genre = st.radio(
+            "거래 유형을 선택해 주세요 (중개거래, 직거래)",
+            ('중개거래', '직거래'), key=12+i )
+
+        st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
+
+
+    with col2 :
+        # column 2 에 담을 내용
+        st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1,key=i+1)
+        # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
+
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+
+        if st.button('현재 금리 적용', key=23+i):
+            today = datetime.date.today()
+            st.write(f'{today}')
+        else:
+            today = datetime.date.today()
+
+    if st.button('예측', key=34+i):
+        st.write("아파트 실거래가 예측 값 입니다")
+    else:
+        st.write("")
+
 
 with tab0:
-    tab0.subheader("💸Linear Regression💸")
-    st.write()
+    tab0.subheader("📈Linear Regression📈")
+    st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+    col_(0)
+
+
+with tab1:
+    tab1.subheader("🤝KNN🤝")
+    col_(2)
+    
+         
+with tab2:
+    tab2.subheader("🌲Decision Tree🌲")
+    col_(4)
+
+    
+with tab3:
+    tab3.subheader("🌳Random Forest🌳")
+    col_(6)
+
+with tab4:
+    tab4.subheader("💪XGBoost💪")
+    col_(8)
+
+
+with tab5:
+    tab5.subheader("⚡️LightGBM⚡️")
+    col_(10)
+
+with tab6:
+
+
     '''
-    **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
-    '''
-    '''
-    ---
-     ### Team
+    ### 집사조😋
     | 이름 | 역할 | 모델링 |
     | :---: | :---: | :---: |
     | 서상원 | **팀장**, 발표, 데이터 수집 및 전처리, Streamlit, ML | KNN |
@@ -92,71 +152,13 @@ with tab0:
     | 박상원 | 데이터 수집 및 전처리, ML | Linear Regression |
     | 이영재 | 아이디어 제공 | |
     | 최용재 | 아이디어 제공, 정보제공 | |
-    
-    #### 데이터 설명
-    > * 
-   
     '''
-with tab1:
-    tab1.subheader("📈KNN")
-    tab1.write()
-    
-    option = st.selectbox(
-    '원하는 차트유형을 골라주세요',
-    ('Bar', 'Pie', 'Heatmap'))
-    if option == 'Bar':
-        option = st.selectbox(
-        '원하는 차트를 골라주세요',
-        ('성별에 따른 상품 구매량', '평일/주말에 따른 상품 구매량', '나이에 따른 상품 구매량'))
-        if option == '성별에 따른 상품 구매량':
-            st.write("성별에 따른 상품구매량")
-            hist_plot(datas,'sex','Tag')
-
-        elif option == '평일/주말에 따른 상품 구매량':
-            st.write("평일/주말에 따른 상품 구매량")
-            hist_plot(datas,'weekday','Tag')
-
-        elif option == '나이에 따른 상품 구매량':
-            st.write("평일/주말에 따른 상품 구매량")
-            hist_plot(datas,'age','Tag')
-
-    elif option == 'Pie':
-        st.write("년도별 성별에 따른 상품 구매량")
-        pie()    
-    elif option == 'Heatmap':
-        st.write("히트맵 인덱스가 날아가네요 자세한건 Colab에서")
-         
-with tab2:
-    tab2.subheader("🗃 Data Tab")
-    datas.head()
-    tab2.write()
 
     '''
     ---
     ### 
-    * KDX2021_SSC_ONLINE_DATA
-    * 온라인쇼핑의 세부 업종별 소비 특징 데이터. '19.5월/'20.5월/'21.5월 기간에 대해 14개의 주요 온라인 쇼핑 업종의 연령/성별/구매시간대별 소비 건수를 집계한 데이터
-    > [데이터 다운로드](https://kdx.kr/data/view/31454)
-    * 데이터출처 : KDX 한국데이터거래소
+    * 데이터출처 : 국토교통부 실거래가 공개 시스템
+    * 아파트 실거래가 2022년 3월 ~ 2023년 2월까지의 데이터 입니다.
+    > [데이터 다운로드]("http://rtdown.molit.go.kr/")
     ---
     '''
-    
-with tab3:
-    tab3.subheader("🖇️ Link Tab")
-    tab3.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
-    st.write()
-    '''
-    * colab링크
-    > [Colab](https://colab.research.google.com/drive/1hqqOwwSKjBi1zvcR3xalsBCklYpjx0vq?usp=sharing)
-    * Github링크
-    > [Github](https://github.com/tkd8973/Data_Visualization) 
-    '''
-
-with tab4
-    tab4.subheader("🖇️ Link Tab")
-    tab4.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
-
-
-with tab5:
-    tab5.subheader("🖇️ Link Tab")
-    tab5.write("추가적인 자료는 Google Colab 링크를 첨부해드립니다!")
