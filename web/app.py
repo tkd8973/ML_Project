@@ -36,7 +36,7 @@ def side_bar(df1,df2) :
     # 시/도 선택
 
     city_list = df1['시군구'].apply(lambda x: x.split()[0]).unique()
-    city_choice = s_bar.selectbox('시/도 선택', city_list)
+    city_choice = s_bar.selectbox('','시/도 선택', city_list)
 
     # 시/군/구 선택
     gu_list = df1['시군구'][df1['시군구'].str.contains(city_choice)].apply(lambda x: x.split()[1]).unique()
