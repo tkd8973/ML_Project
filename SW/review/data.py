@@ -29,4 +29,4 @@ def get_town_list(city_choice, gu_choice):
     df = read_data()
     return get_unique_list(df['시군구'][
         check_contain(df['시군구'], city_choice)
-        & check_contain(df['시군구'], gu_choice)], 1)
+        & check_contain(df['시군구'], gu_choice)], 2)
