@@ -83,7 +83,7 @@ def col_(i):
 
         genre = st.radio(
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
-            ('중개거래', '직거래'), key=11+i )
+            ('중개거래', '직거래'), key=12+i )
 
         st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
 
@@ -95,13 +95,13 @@ def col_(i):
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
-        if st.button('현재 금리 적용', key=21+i):
+        if st.button('현재 금리 적용', key=23+i):
             today = datetime.date.today()
             st.write(f'{today}')
         else:
             today = datetime.date.today()
 
-    if st.button('예측', key=32+i):
+    if st.button('예측', key=34+i):
         st.write("아파트 실거래가 예측 값 입니다")
     else:
         st.write("")
