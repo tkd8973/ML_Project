@@ -66,7 +66,7 @@ def Pre(datas):
     datas.loc[((datas.index >= '2022-08-25')& (datas.index < '2022-10-12')), '금리'] = 2.5
     datas.loc[((datas.index >= '2022-10-12')& (datas.index < '2022-11-24')), '금리'] = 3.0
     datas.loc[((datas.index >= '2022-11-24')& (datas.index < '2023-01-13')), '금리'] = 3.25
-    datas.loc[((datas.index >= '2022-01-13')), '금리'] = 3.5
+    datas.loc[((datas.index >= '2023-01-13')), '금리'] = 3.5
     st.dataframe(datas)
     return data
 
