@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
-from sklearn.tree import Decisor
+from sklearn.tree import DecisionTreeRegressor
 import xgboost as xgb
 import lightgbm as lgbionTreeRegressor
 from xgboost import XGBRegress
