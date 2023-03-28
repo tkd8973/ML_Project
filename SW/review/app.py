@@ -37,7 +37,7 @@ def sidebar() :
 def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     with tab0:
         background()
     with tab1: 
