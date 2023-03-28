@@ -104,6 +104,10 @@ with tab0:
         else:
             today = datetime.date.today()
 
+if st.button('예측'):
+    st.write("아파트 실거래가 예측 값 입니다")
+else:
+    st.write("")
 
 
 
@@ -111,30 +115,6 @@ with tab1:
     tab1.subheader("📈KNN")
     tab1.write()
     
-    # option = st.selectbox(
-    # '원하는 차트유형을 골라주세요',
-    # ('Bar', 'Pie', 'Heatmap'))
-    # if option == 'Bar':
-    #     option = st.selectbox(
-    #     '원하는 차트를 골라주세요',
-    #     ('성별에 따른 상품 구매량', '평일/주말에 따른 상품 구매량', '나이에 따른 상품 구매량'))
-    #     if option == '성별에 따른 상품 구매량':
-    #         st.write("성별에 따른 상품구매량")
-    #         hist_plot(datas,'sex','Tag')
-
-    #     elif option == '평일/주말에 따른 상품 구매량':
-    #         st.write("평일/주말에 따른 상품 구매량")
-    #         hist_plot(datas,'weekday','Tag')
-
-    #     elif option == '나이에 따른 상품 구매량':
-    #         st.write("평일/주말에 따른 상품 구매량")
-    #         hist_plot(datas,'age','Tag')
-
-    # elif option == 'Pie':
-    #     st.write("년도별 성별에 따른 상품 구매량")
-    #     pie()    
-    # elif option == 'Heatmap':
-    #     st.write("히트맵 인덱스가 날아가네요 자세한건 Colab에서")
          
 with tab2:
     tab2.subheader("Decision Tree")
