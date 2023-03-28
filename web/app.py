@@ -105,12 +105,16 @@ with tab0:
         st.info('건축 년도 선택', icon="ℹ️")
         
 
+        import datetime
+
         if st.button('현재 금리 적용'):
             today = datetime.date.today()
             st.write(f'{today}')
         else:
-            st.write('예측이 불가합니다.')
+            today = datetime.date.today()
+            st.write(f'오늘 날짜: {today}')
         st.info('금리 적용', icon="ℹ️")
+
 
 
 
