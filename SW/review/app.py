@@ -14,7 +14,9 @@ def sidebar() :
     city_choice = st.selectbox(label_city_list, get_city_list())
     gu_choice = st.selectbox(label_gu_list, get_gu_list(city_choice))
     town_choice = st.selectbox(label_town_list, get_town_list(city_choice, gu_choice))
-    st.selectbox(label_town_list, get_village_list(city_choice, gu_choice, town_choice))
+    vl = get_village_list(city_choice, gu_choice, town_choice)
+    if vl:
+        villige_choice = st.selectbox(label_town_list, vl)
 
 def contents():
     pass
