@@ -135,8 +135,8 @@ with tab5:
     tab5.write("")
 
 with tab6:
-    tab1.subheader("집사줘 😋")
-    tab1.write("")
+    tab6.subheader("집사줘 😋")
+    tab6.write("")
 
 
     '''
