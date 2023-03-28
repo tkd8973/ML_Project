@@ -38,8 +38,8 @@ def side_bar(df1) :
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
     
-    st.datafame(Jan_result)
-    
+    st.dataframe(Jan_result)
+
     return Jan_result
 
 df = side_bar(df)
