@@ -73,7 +73,7 @@ tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Linear Regression", "KNN", "Decis
 
 with tab0:
     tab0.subheader("Linear Regression")
-    st.write()
+    st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
     
     col1,col2 = st.columns([1, 1])
@@ -84,21 +84,21 @@ with tab0:
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
-        st.markdown(f"<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
-        
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+
         genre = st.radio(
             "거래 유형을 선택해 주세요 (중개거래, 직거래)",
             ('중개거래', '직거래'))
-        # if genre == '중개거래':
-        #     st.write('중개거래를 선택하셨습니다.')
-        # else:
-        #     st.write("직거래를 선택하셨습니다.")
+
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
 
     with col2 :
         # column 2 에 담을 내용
         year_of_construction = st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
         # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
+
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
         if st.button('현재 금리 적용'):
             today = datetime.date.today()
