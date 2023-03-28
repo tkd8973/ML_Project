@@ -6,7 +6,7 @@ import os
 import datetime
 # import xgboost as xgb
 # xgb_model = xgb.XGBRegressor()
-
+global count
 
 title = "🏢 반포자이 사조"
 text = "(2022년 3월 - 2023년 2월)"
@@ -70,13 +70,13 @@ df1,df2 = side_bar(df_apt1,df_apt2)
 tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM", "Team"])
 
     
-count=0
+
 def col_():
     count+=1
     col1,col2 = st.columns([1, 1])
     with col1 :
         # column 1 에 담을 내용
-        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
+        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25,key = count)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
