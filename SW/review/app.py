@@ -157,7 +157,7 @@ def xgb():
     for i in range(0,5):
         if i==0:
             continue
-        model = xgb.XGBRegressor(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=100)
+        model = xgb.XGBRegressor()
         model.fit(X_train,y_train)
 
         pred=model.predict(X_test)
