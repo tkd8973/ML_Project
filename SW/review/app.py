@@ -133,7 +133,7 @@ def dct():
     for i in range(0,5):
         if i==0:
             continue
-        model = DecisionTreeClassifier(random_state=i)
+        model = DecisionTreeRegressor(random_state=i)
         model.fit(X_train,y_train)
 
         pred=model.predict(X_test)
