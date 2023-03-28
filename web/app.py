@@ -70,12 +70,13 @@ df1,df2 = side_bar(df_apt1,df_apt2)
 tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM", "Team"])
 
     
-
+count=0
 def col_():
+    count+=1
     col1,col2 = st.columns([1, 1])
     with col1 :
         # column 1 에 담을 내용
-        area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
+        st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
@@ -89,7 +90,7 @@ def col_():
 
     with col2 :
         # column 2 에 담을 내용
-        year_of_construction = st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
+        st.slider('건축 년도를 선택해 주세요', 1940, 2023, 1)
         # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
 
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
@@ -110,7 +111,7 @@ with tab0:
     tab0.subheader("Linear Regression")
     st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
     col_()
-    
+
 
 with tab1:
     tab1.subheader("📈KNN")
