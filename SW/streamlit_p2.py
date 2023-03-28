@@ -60,6 +60,8 @@ def Pre(datas):
 
     return datas
 
+
+# knn 모델
 def knn(datas):
     train = datas.loc[datas.index < '2023-01-01']
     test = datas.loc[datas.index >= '2023-01-01']
@@ -87,6 +89,9 @@ df = side_bar(df)
 data = Pre(df)
 knn(data)
 
+
+# 랜덤포레스트 모델
+
 def RdForest(datas):
     train = datas.loc[datas.index < '2023-01-01']
     test = datas.loc[datas.index >= '2023-01-01']
@@ -109,7 +114,5 @@ def RdForest(datas):
 
     st.write(models)
 
-df = side_bar(df)
 data = Pre(df)
-print(data)
 RdForest(data)
