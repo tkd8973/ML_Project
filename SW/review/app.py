@@ -34,12 +34,8 @@ def sidebar() :
     else:
         st.session_state['village'] = ''
 
-def contents():
-    # st.write(get_filtered_data())
-    # st.write(handle_preprocessing())
 
-    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
-    def col_(i):
+def col_(i):
         col1,col2 = st.columns([1, 1])
         with col1 :
             st.slider('전용 면적을 선택해 주세요', 0.0, 300.0,key =i)
@@ -62,8 +58,16 @@ def contents():
             st.write("아파트 실거래가 예측 값 입니다")
         else:
             st.write("")
+
+
+def contents():
+    # st.write(get_filtered_data())
+    # st.write(handle_preprocessing())
+
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
     with tab0:
+        col_(1)
         background()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
