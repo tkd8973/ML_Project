@@ -26,8 +26,59 @@ def sidebar() :
 
 def contents():
     # st.write(get_filtered_data())
-    st.write(handle_preprocessing())
+    # st.write(handle_preprocessing())
+    tab1, tab2 = st.tabs(['KNN 모델', '랜덤 포레스트 모델'])
+    with tab1: knn()
+    with tab2: RdForest()
+
+# knn 모델
+def knn():
+    datas = handle_preprocessing()
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
+
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = KNeighborsRegressor(n_neighbors=i,weights='distance')
+        model.fit(X_train,y_train)
+
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        
+        models.append(rmse)
+
+    st.write(models)
+
+# 랜덤포레스트 모델
+
+def RdForest():
+    datas = handle_preprocessing()
+    train = datas.loc[datas.index < '2023-01-01']
+    test = datas.loc[datas.index >= '2023-01-01']
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_train = train['거래금액(만원)']
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
+    y_test = test['거래금액(만원)']
+
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = RandomForestRegressor(n_neighbors=i,weights='distance')
+        model.fit(X_train,y_train)
+
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        
+        models.append(rmse)
+
+    st.write(models)
 
 if __name__ == '__main__':
     main()
-    st.write('hello :)')
