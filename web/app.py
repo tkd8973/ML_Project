@@ -101,7 +101,7 @@ def col_(i):
         else:
             today = datetime.date.today()
 
-    if st.button('예측', key=31+i):
+    if st.button('예측', key=32+i):
         st.write("아파트 실거래가 예측 값 입니다")
     else:
         st.write("")
