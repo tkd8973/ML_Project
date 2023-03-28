@@ -83,7 +83,7 @@ with tab0:
 
     with col1 :
         # column 1 에 담을 내용
-        area = st.slider('전용 면적을 선택해 주세요', 0, 130, 25)
+        area = st.slider('전용 면적을 선택해 주세요', 0.0, 130.0, 25.0)
         st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
         st.info('면적 선택', icon="ℹ️")
 
