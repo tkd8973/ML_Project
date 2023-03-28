@@ -47,4 +47,4 @@ def side_bar(df1,df2) :
 
 df1,df2 = side_bar(df_apt1,df_apt2)
 
-st.dataframe(df1.columns)
+st.dataframe(df_apt10[df1.columns])
