@@ -69,12 +69,7 @@ df1,df2 = side_bar(df_apt1,df_apt2)
 
 tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Linear Regression", "KNN", "Decision Tree", "Random Forest", "XGBoost", "LightGBM", "Team"])
 
-with tab0:
-    tab0.subheader("Linear Regression")
-    st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
     
-
-# 공간을 1:1 으로 분할하여 col1과 col2라는 이름을 가진 컬럼을 생성
 
 def col_():
     col1,col2 = st.columns([1, 1])
@@ -111,6 +106,11 @@ def col_():
         st.write("")
 
 
+with tab0:
+    tab0.subheader("Linear Regression")
+    st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+    col_()
+    
 
 with tab1:
     tab1.subheader("📈KNN")
@@ -121,21 +121,24 @@ with tab1:
 with tab2:
     tab2.subheader("Decision Tree")
     tab2.write()
+    col_()
 
     
 with tab3:
     tab3.subheader("Random Forest")
     tab3.write("")
-    st.write("")
+    col_()
 
 with tab4:
     tab4.subheader("XGBoost")
     tab4.write("")
+    col_()
 
 
 with tab5:
     tab5.subheader("LightGBM")
     tab5.write("")
+    col_()
 
 with tab6:
     tab6.subheader("집사줘 😋")
