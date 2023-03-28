@@ -37,6 +37,8 @@ def sidebar() :
 def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
+
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     def col_(i):
         col1,col2 = st.columns([1, 1])
         with col1 :
@@ -60,8 +62,7 @@ def contents():
             st.write("아파트 실거래가 예측 값 입니다")
         else:
             st.write("")
-
-    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
+    
     with tab0:
         background()
     with tab1: 
