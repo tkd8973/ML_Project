@@ -5,21 +5,6 @@ import data
 
 df = data.read_data()
 
-def Pre(datas):
-    data=[]
-    datas['거래금액(만원)']=(datas['거래금액(만원)'].str.replace(',','')).str.strip().astype(int)
-    datas["평당가"] = (datas["거래금액(만원)"] / datas["전용면적(㎡)"]*0.3025) # 평당가 계산하여 새로운 컬럼 추가
-    aa=datas['계약년월'].astype(str)
-    bb=datas['계약일'].astype(str)
-    datas['date'] = aa+bb
-    datas['date'] = pd.to_datetime(datas['date'], format='%Y%m%d')
-    datas['금리'] = datas.apply(lambda x: 3.25 if ((x['계약년월']== 202301) & (x['계약일'] < 13)) else 3.5, axis=1)
-    datas.drop(['계약년월','계약일'],axis=1,inplace=True)
-    datas['거래유형'] = datas['거래유형'].apply(lambda x:0 if x=='중개거래' else 1)
-    datas.dropna(inplace=True)
-
-    return data
-
 def side_bar(df1) :
     s_bar = st.sidebar
     s_bar.title('지역을 선택해주세요.')
