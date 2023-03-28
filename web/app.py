@@ -75,7 +75,7 @@ with tab0:
     st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
 
     
-    col1,col2 = st.columns([1, 1])
+    col1,col2 = st.columns([0.8, 0.8])
     # 공간을 1:1 으로 분할하여 col1과 col2라는 이름을 가진 컬럼을 생성
 
     with col1 :
