@@ -73,10 +73,11 @@ with tab0:
     tab0.subheader("Linear Regression")
     st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
     
-col1,col2 = st.columns([1, 1])
+
 # 공간을 1:1 으로 분할하여 col1과 col2라는 이름을 가진 컬럼을 생성
 
 def col_():
+    col1,col2 = st.columns([1, 1])
     with col1 :
         # column 1 에 담을 내용
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0, 25.0)
