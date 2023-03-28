@@ -107,7 +107,7 @@ with tab0:
 
         if st.button('현재 금리 적용'):
             today = datetime.date.today()
-            st.write(today.strftime("%Y년 %m월 %d일"))
+            st.write('today.strftime("%Y년 %m월 %d일")')
         else:
             st.write('예측이 불가합니다.')
         st.info('금리 적용', icon="ℹ️")
