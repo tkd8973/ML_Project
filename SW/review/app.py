@@ -33,6 +33,7 @@ def sidebar() :
     else:
         st.session_state['village'] = ''
 
+
 def contents():
     # st.write(get_filtered_data())
     # st.write(handle_preprocessing())
@@ -59,7 +60,7 @@ def lr():
     for i in range(0,5):
         if i==0:
             continue
-        model = LinearRegression()
+        model = LinearRegression(n_jobs=-1)
         model.fit(X_train,y_train)
 
         pred= model.predict(X_test)
