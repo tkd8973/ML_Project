@@ -8,8 +8,8 @@ def get_filtered_data():
         ss[k] for k in ['city', 'gu', 'town', 'village']
     ]
     return df[
-        check_contain(df['시군구'], city_choice),
-        & check_contain(df['시군구'], gu_choice),
-        & check_contain(df['시군구'], town_choice),
-        & check_contain(df['시군구'], village_choice),
+        check_contain(df['시군구'], city_choice)
+        & check_contain(df['시군구'], gu_choice)
+        & check_contain(df['시군구'], town_choice)
+        & check_contain(df['시군구'], village_choice)
     ]
