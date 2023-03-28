@@ -9,9 +9,9 @@ def main():
 def sidebar() :
     title =  '지역을 선택해주세요.'
     st.title(title)
-    print(__file__)
-    print(os.path.realpath(__file__))
-    print(os.path.abspath(__file__))
+    st.write(__file__)
+    st.write(os.path.realpath(__file__))
+    st.write(os.path.abspath(__file__))
     st.write(glob.glob('static/*.csv'))
 
 def contents():
