@@ -61,7 +61,7 @@ def contents():
         
 
 def background():
-    st.dataframe(handle_preprocessing)
+    st.dataframe(handle_preprocessing())
 
 # lr 모델
 def lr():
