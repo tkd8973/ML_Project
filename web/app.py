@@ -8,7 +8,7 @@ import datetime
 # xgb_model = xgb.XGBRegressor()
 
 
-title = "🏢 반포자이 사줘"
+title = "🏢 반포자이 사조"
 text = "(2022년 3월 - 2023년 2월)"
 
 st.markdown(f"<div style='font-weight:bold; font-size:35px; text-align:center'>{title}</div>", unsafe_allow_html=True)
@@ -109,7 +109,6 @@ else:
     st.write("")
 
 
-
 with tab1:
     tab1.subheader("📈KNN")
     tab1.write()
@@ -135,7 +134,7 @@ with tab5:
     tab5.write("")
 
 with tab1:
-    tab1.subheader("Team")
+    tab1.subheader("집사줘 😋")
     tab1.write("")
 
     '''
