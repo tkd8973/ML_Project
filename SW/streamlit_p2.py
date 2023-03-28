@@ -38,12 +38,10 @@ def side_bar(df1) :
     # result 데이터프레임의 인덱스를 0->1부터 시작하도록 변경
     Jan_result.index = np.arange(1,len(Jan_result) + 1)
     
-
-
     return Jan_result
 df_apt1 = side_bar(df_apt1)
 columns = df_apt1.columns
 result = pd.concat([df_apt9[columns],df_apt10[columns],\
 df_apt11[columns],df_apt12[columns],df_apt1[columns],df_apt2[columns]])
 
-st.dataframe(result)
+st.dataframe(df_apt9[columns])
