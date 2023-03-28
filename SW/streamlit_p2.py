@@ -36,7 +36,6 @@ def side_bar(df1) :
     return result
 
 def Pre(datas):
-    data=[]
     datas['거래금액(만원)']=(datas['거래금액(만원)'].str.replace(',','')).str.strip().astype(int)
     datas["평당가"] = (datas["거래금액(만원)"] / datas["전용면적(㎡)"]*0.3025) # 평당가 계산하여 새로운 컬럼 추가
     aa=datas['계약년월'].astype(str)
