@@ -61,11 +61,11 @@ def Pre(datas):
 def knn(datas):
     train = datas.loc[datas.index < '2023-01-01']
     test = datas.loc[datas.index >= '2023-01-01']
-    X_train = train.drop(['시군구','거래금액(만원)','평단가'],axis=1)
+    X_train = train.drop(['시군구','거래금액(만원)','평당가'],axis=1)
     y_train = train['거래금액(만원)']
-    X_test = test.drop(['시군구','거래금액(만원)','평단가'],axis=1)
+    X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
     y_test = test['거래금액(만원)']
-    
+
     models = []
     for i in range(0,5):
         if i==0:
