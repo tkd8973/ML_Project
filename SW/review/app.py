@@ -75,7 +75,7 @@ def RdForest():
     for i in range(0,5):
         if i==0:
             continue
-        model = RandomForestRegressor(n_neighbors=i,weights='distance')
+        model = RandomForestRegressor(n_estimator=150,max_depth=4)
         model.fit(X_train,y_train)
 
         pred=model.predict(X_test)
