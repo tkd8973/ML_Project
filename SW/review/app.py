@@ -220,9 +220,7 @@ def xgb():
 # LGBM 모델
 def lgbm():
     model = LGBMRegressor(num_leaves=31, max_depth=15, learning_rate=0.1)
-    gs_model = GridSearchCV(
-    model, param_grid=parameter, n_jobs=-1, cv=5, verbose=1
-    )
+    gs_model = GridSearchCV(model, param_grid=parameter, n_jobs=-1, cv=5, verbose=1)
     parameter = {
     'learning_rate': [0.01, 0.1, 0.3],
     'max_depth': [5, 7, 10],
