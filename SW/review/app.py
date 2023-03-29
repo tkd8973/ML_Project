@@ -19,8 +19,6 @@ import plotly.graph_objs as go
 import plotly.io as pio
 import plotly.express as px
 
-data = read_data()
-
 def main():
     with st.sidebar: sidebar()
     contents()
@@ -82,6 +80,7 @@ def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     try:
         with tab0:
+            data = read_data()
             background()
             aa=col_()
             st.write(aa)
