@@ -221,20 +221,21 @@ def xgb():
                     yaxis_title='예측값')
     st.plotly_chart(fig)
     st.write('모델의 RMSE:', rmse)
-    '''
-    X_train,y_train,X_test,y_test = load_data()
-    models = []
-    model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
-    model.fit(X_train,y_train)
+    
+    return model
+    # X_train,y_train,X_test,y_test = load_data()
+    # models = []
+    # model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
+    # model.fit(X_train,y_train)
 
-    pred=model.predict(X_test)
-    rmse = mean_squared_error(y_test,pred)**0.5
-    models.append(rmse)
+    # pred=model.predict(X_test)
+    # rmse = mean_squared_error(y_test,pred)**0.5
+    # models.append(rmse)
 
-    st.write(models)
-    st.write('모델의 예측 값',pred)
+    # st.write(models)
+    # st.write('모델의 예측 값',pred)
 
-    return model'''
+    # return model
 
 # LGBM 모델
 def lgbm():
