@@ -79,22 +79,28 @@ def contents():
         aa=col_()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-        lr()
+        lr_model = lr()
+        Linear_(lr_model,aa)
     with tab2: 
         tab2.subheader("🤝KNN🤝")
-        knn()
+        knn_model = knn()
+        KNN_(knn_mdoel,aa)
     with tab3:
         tab3.subheader("🌲Decision Tree🌲")
-        dct()
+        decision = dct()
+        DCT_(decision,aa)
     with tab4:
         tab4.subheader("🌳Random Forest🌳") 
-        rdf()
+        rf = rdf()
+        RDF_(rf,aa)
     with tab5:
         tab5.subheader("💪XGBoost💪") 
-        xgb()
+        xgb_model = xgb()
+        XGB(xgb_model,aa)
     with tab6: 
         tab6.subheader("⚡️LightGBM⚡️")
-        lgbm()
+        lgbmR = lgbm()
+        LGBM(lgbmR,aa)
         
 def background():
     st.dataframe(handle_preprocessing())
@@ -109,9 +115,7 @@ def load_data():
     y_test = test['평당가']
 
     return X_train,y_train,X_test,y_test
-def predict(model):
 
-    return 
 # lr 모델
 def lr():
     X_train,y_train,X_test,y_test = load_data()
@@ -123,7 +127,8 @@ def lr():
     rmse = mean_squared_error(y_test,pred)**0.5
     st.write('모델의 RMSE 값',rmse)
     st.write('모델의 예측 값',pred)
-
+    return model
+    
 
 # knn 모델
 def knn(data = None):
@@ -144,6 +149,7 @@ def knn(data = None):
     st.write(models)
     st.write('모델의 예측 값',pred)
 
+    return model
 # 랜덤포레스트 모델
 def rdf(data = None):
     X_train,y_train,X_test,y_test = load_data()
@@ -161,8 +167,9 @@ def rdf(data = None):
         models.append(rmse)
 
     st.write(models)
-    st.write('모델의 예측 값',pred)
+    st.write('모델의 예측 값',pred) 
 
+    return model
 # 결정트리 모델
 def dct(data = None):
     X_train,y_train,X_test,y_test = load_data()
@@ -182,6 +189,8 @@ def dct(data = None):
     st.write(models)
     st.write('모델의 예측 값',pred)
 
+    return model
+
 # XGBoost 모델
 def xgb(data = None):
     X_train,y_train,X_test,y_test = load_data()
@@ -198,6 +207,8 @@ def xgb(data = None):
 
     st.write(models)
     st.write('모델의 예측 값',pred)
+
+    return model
 
 # LGBM 모델
 def lgbm(data = None):
@@ -216,6 +227,7 @@ def lgbm(data = None):
 
     st.write(models)
     st.write('모델의 예측 값',pred)
+    return model
 
 if __name__ == '__main__':
     main()
