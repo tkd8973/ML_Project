@@ -106,7 +106,7 @@ def load_data():
     return X_train,y_train,X_test,y_test
 
 # lr 모델
-def lr(data = None):
+def lr():
     X_train,y_train,X_test,y_test = load_data()
     models = []
     for i in range(0,5):
@@ -117,10 +117,6 @@ def lr(data = None):
 
         pred= model.predict(X_test)
         rmse = mean_squared_error(y_test,pred)**0.5
-        
-        if data!=None:
-            test = model.predict(data)
-            st.write(test)
         models.append(rmse)
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
