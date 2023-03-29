@@ -84,8 +84,7 @@ def contents():
             background()
             aa=col_()
             st.write(aa)
-            fig = px.scatter(data, x='전용면적(㎡)', y='거래금액(만원)', color='시군구')
-            st.plotly_chart(fig)
+
         with tab1: 
             tab1.subheader("📈Linear Regression📈")
             lr_model = lr()
@@ -224,7 +223,7 @@ def lgbm():
     for i in range(0,5):
         if i==0:
             continue
-        model = LGBMRegressor(num_leaves=16, max_depth=i, learning_rate=0.1)
+        model = LGBMRegressor(num_leaves=31, max_depth=15, learning_rate=0.1)
         model.fit(X_train,y_train)
         pred=model.predict(X_test)
         rmse = mean_squared_error(y_test,pred)**0.5
