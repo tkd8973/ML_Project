@@ -221,24 +221,40 @@ def xgb():
 
 # LGBM 모델
 def lgbm():
+    X_train, y_train, X_test, y_test = load_data()
+    # 모델 훈련 및 예측
+    model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    # 모델 성능 평가
+    rmse = mean_squared_error(y_test, pred)**0.5
+    # 시각화
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제 값'))
+    fig.add_trace(go.Scatter(x=list(range(len(pred))), y=pred, mode='lines', name='모델 예측 값'))
+    fig.update_layout(title='XGBoost 모델 예측 결과',
+                    xaxis_title='데이터 인덱스',
+                    yaxis_title='예측값')
+    st.plotly_chart(fig)
+    st.write('모델의 RMSE:', rmse)
+
+    return model
+    '''
     X_train,y_train,X_test,y_test = load_data()
     models = []
-    for i in range(0,5):
-        if i==0:
-            continue
-        model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
-        model.fit(X_train,y_train)
-        pred=model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        models.append(rmse)
+
+    model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
+    model.fit(X_train,y_train)
+    pred=model.predict(X_test)
+    rmse = mean_squared_error(y_test,pred)**0.5
+    models.append(rmse)
     models = np.array(models)
-    x = range(0, len(models))
-    fig =px.line(x=x,y=models)
-    st.plotly_chart(fig)
+    
     st.write(models)
     st.write('모델의 예측 값',pred)
 
     return model
+'''
 
 if __name__ == '__main__':
     main()
