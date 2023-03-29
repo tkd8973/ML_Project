@@ -145,20 +145,21 @@ def lr():
 def knn():
     X_train,y_train,X_test,y_test = load_data()
     
+    #@title KNN
     models = []
-    param_grid = {'n_neighbors': [1, 3, 5, 7], 
-    'weights': ['uniform', 'distance'], 
-    'p': [1, 2, 3]}
-    model = KNeighborsRegressor()
-    grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
-    grid_search.fit(X_train, y_train)
-    results = pd.DataFrame(grid_search.cv_results_)
-    fig = go.Figure(data=go.Surface(x=results['param_n_neighbors'], y=results['param_p'], z=results['mean_test_score'].values.reshape(6,4)))
-    fig.update_layout(title="KNN Model Performance",
-                      scene=dict(xaxis_title="Number of neighbors",
-                                 yaxis_title="Power parameter (p)",
-                                 zaxis_title="Mean test score"))
+    for i in range(0,6):
+        if i==0:
+            continue
+        model = KNeighborsRegressor(n_neighbors=i,weights='distance')
+        model.fit(X_train,y_train)
+
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        
+        models.append(rmse)
+    fig = px.line(x=list(0,6),y= rmse )
     st.plotly_chart(fig)
+    
     return grid_search
 
 # 랜덤포레스트 모델
