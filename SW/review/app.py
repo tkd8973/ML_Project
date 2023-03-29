@@ -66,8 +66,7 @@ def col_():
         st.session_state['flag'] = 'test'
         st.write(ss)
         return input_data
-    else:        
-
+        
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
