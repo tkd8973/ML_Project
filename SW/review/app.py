@@ -74,9 +74,7 @@ def contents():
         aa=col_()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-        path ='LR.joblib'
         lr()
-        predict(path,aa) 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
         knn()
@@ -120,7 +118,6 @@ def lr():
 
     pred= model.predict(X_test)
     rmse = mean_squared_error(y_test,pred)**0.5
-    joblib.dump(model, 'LR.joblib')
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
 
