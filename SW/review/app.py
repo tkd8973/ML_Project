@@ -55,8 +55,8 @@ def col_():
                 int_rate = 3.75
             else:
                 today = datetime.date.today()
-
-    return [area,year,genre,int_rate]
+        input_data = [area,year,genre,int_rate]
+    return input_data
 
 def contents():
 
