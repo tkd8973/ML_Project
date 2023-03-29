@@ -147,6 +147,7 @@ def knn():
     # 데이터 로드
     X_train, y_train, X_test, y_test = load_data()
     r2_scores=[]
+    rmse_ = []
     # 모델 훈련
     for i in range(1,5):
         model = KNeighborsRegressor(i,weights='distance')
@@ -156,9 +157,9 @@ def knn():
         rmse = mean_squared_error(y_test,pred)**0.5
         r2=r2_score(y_test,pred)
         r2_scores.append(r2_score)
-
-    st.write(r2)
-    st.write(rmse)
+        rmse_.append(rmse)
+    st.write(r2_scores)
+    st.write(rmse_)
 
     return model
 # 랜덤포레스트 모델
