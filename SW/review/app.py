@@ -219,18 +219,19 @@ def xgb():
 
 # LGBM 모델
 def lgbm():
-        model = lgb.LGBMRegressor(num_leaves=31, max_depth=15, learning_rate=0.1)
-        gs_model = GridSearchCV(
-        model, param_grid=parameter, n_jobs=-1, cv=5, verbose=1
-        )
-        parameter = {
-        'learning_rate': [0.01, 0.1, 0.3],
-        'max_depth': [5, 7, 10],
-        'num_leaves': [31, 35, 40]
-        }
-        gs_model.fit(X_train, y_train)
-        scores_df = pd.DataFrame(gs_model.cv_results_)
-        st.write(scores_df)
+    model = lgb.LGBMRegressor(num_leaves=31, max_depth=15, learning_rate=0.1)
+    gs_model = GridSearchCV(
+    model, param_grid=parameter, n_jobs=-1, cv=5, verbose=1
+    )
+    parameter = {
+    'learning_rate': [0.01, 0.1, 0.3],
+    'max_depth': [5, 7, 10],
+    'num_leaves': [31, 35, 40]
+    }
+    gs_model.fit(X_train, y_train)
+    scores_df = pd.DataFrame(gs_model.cv_results_)
+    st.write(scores_df)
+    
     return gs_model
 
 if __name__ == '__main__':
