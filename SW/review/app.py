@@ -212,7 +212,7 @@ def dct():
     score = df['mean_test_score']
 
 
-    fig = px.line(x=range(1,len(df)+1),y=score,name= 'max_depth에 따른 RMSE값 변화')
+    fig = px.line(x=range(1,len(df)+1),y=score,title= 'max_depth에 따른 RMSE값 변화')
     st.plotly_chart(fig)
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
