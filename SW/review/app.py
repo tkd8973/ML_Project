@@ -180,16 +180,17 @@ def rdf():
 
         rmse = mean_squared_error(y_test,y_pred)**0.5
         rmse_.append(rmse)
-        r2 = r2_score(y_test, y_pred)
-        r2_scores.append(r2)
+
+    fig = px.line(x=range(1,len(rmse_)+1),y=rmse_,title= 'estimators 변화에 따른 RMSE값 변화')
+    st.plotly_chart(fig)
     # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제값'))
-    fig.add_trace(go.Scatter(x=list(range(len(y_pred))), y=y_pred, mode='lines', name='예측값'))
-    fig.update_layout(title='XGBoost 모델 예측 결과',
+    fig2 = go.Figure()
+    fig2.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제값'))
+    fig2.add_trace(go.Scatter(x=list(range(len(y_pred))), y=y_pred, mode='lines', name='예측값'))
+    fig2.update_layout(title='XGBoost 모델 예측 결과',
                     xaxis_title='데이터 인덱스',
                     yaxis_title='예측값')
-    st.plotly_chart(fig)
+    st.plotly_chart(fig2)
     return model
 
 
