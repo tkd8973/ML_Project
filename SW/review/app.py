@@ -58,7 +58,7 @@ def col_():
 
     if st.button('입력 완료'):
         st.write("입력이 완료 되었습니당")            
-        input_data = pd.DataFrame([area,year,genre,int_rate],columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
+        input_data = pd.DataFrame([area,year_apt,genre,int_rate],columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
 
         return input_data
     else:
