@@ -56,16 +56,16 @@ def col_():
             else:
                 today = datetime.date.today()
 
+    return [area,year,genre,int_rate]
 
 def contents():
-    # st.write(get_filtered_data())
-    # st.write(handle_preprocessing())
 
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
     with tab0:
         background()
-        col_()
+        aa=col_()
+        st.write(aa)
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
         lr() 
