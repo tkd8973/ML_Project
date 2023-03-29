@@ -63,10 +63,9 @@ def col_():
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,int_rate]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
-        st.write()
+        st.write(ss)
         return input_data
-    else:
-        st.write(ss)            
+    else:        
 
 def contents():
 
