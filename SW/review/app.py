@@ -201,7 +201,6 @@ def dct():
 
     model = DecisionTreeRegressor()
 
-    rmse = mean_squared_error(y_test,pred)**0.5
     grid = GridSearchCV(model, param_grid=param_grid)
     grid.fit(x_train, y_train)
     st.write(grid.best_score_)
