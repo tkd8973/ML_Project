@@ -149,26 +149,9 @@ def knn():
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
     mean_test_scores = grid_search.cv_results_['mean_test_score']
-    params = grid_search.cv_results_['params']
-
+    st.write(mean_test_scores)
     # Extract hyperparameters from parameter settings
-    n_estimators = [params[i]['n_estimators'] for i in range(len(params))]
-    max_depths = [params[i]['max_depth'] for i in range(len(params))]
 
-    # Create meshgrid for 3D plot
-    n_estimators_range = np.arange(min(n_estimators), max(n_estimators)+1)
-    max_depths_range = np.arange(min(max_depths), max(max_depths)+1)
-    X, Y = np.meshgrid(n_estimators_range, max_depths_range)
-
-    # Reshape mean test scores to match meshgrid shape
-    Z = np.reshape(mean_test_scores, (len(max_depths_range), len(n_estimators_range)))
-
-    # Create 3D surface plot
-    fig = go.Figure(data=[go.Surface(x=X, y=Y, z=Z)])
-    fig.update_layout(scene=dict(xaxis_title='n_estimators',
-                                yaxis_title='max_depth',
-                                zaxis_title='mean test score'))
-    pio.show(fig)
 
     return grid_search
 # 랜덤포레스트 모델
