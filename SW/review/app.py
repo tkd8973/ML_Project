@@ -141,11 +141,7 @@ def knn():
     X_train,y_train,X_test,y_test = load_data()
     
     models = []
-
-    if i==0:
-        continue
-        param_grid = {
-    'n_neighbors': [3, 5, 7, 9], 
+    param_grid = {'n_neighbors': [3, 5, 7, 9], 
     'weights': ['uniform', 'distance'], 
     'p': [1, 2, 3]}
     model = KNeighborsRegressor()
