@@ -13,6 +13,7 @@ from service import get_filtered_data, handle_preprocessing
 import datetime
 import pandas as pd
 import numpy as np
+import joblib
 def main():
     with st.sidebar: sidebar()
     contents()
