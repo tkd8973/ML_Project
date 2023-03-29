@@ -160,7 +160,7 @@ def knn():
 
     result = np.array(models).reshape(1,-1)
 
-    px.line(x=range(0,6),y=result)
+    px.line(x=range(1,6),y=result)
     st.plotly_chart(fig)
     
     return model
