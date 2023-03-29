@@ -75,13 +75,12 @@ def col_():
     
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
+   
     try:
         with tab0:
             background()
             aa=col_()
             st.write(aa)
-            
-
         with tab1: 
             tab1.subheader("📈Linear Regression📈")
             lr_model = lr()
@@ -108,6 +107,7 @@ def contents():
             LGBM_(lgbmR,aa)
     except:
         pass
+
 def background():
     st.dataframe(handle_preprocessing())
 
@@ -141,19 +141,19 @@ def knn():
     X_train,y_train,X_test,y_test = load_data()
     
     models = []
-    for i in range(0,5):
-        if i==0:
-            continue
-        model = KNeighborsRegressor(n_neighbors=i,weights='distance')
-        model.fit(X_train,y_train)
 
-        pred=model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        
-        models.append(rmse)
+    if i==0:
+        continue
+        param_grid = {
+    'n_neighbors': [3, 5, 7, 9], 
+    'weights': ['uniform', 'distance'], 
+    'p': [1, 2, 3]}
+    model = KNeighborsRegressor()
+    grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
+    grid_search.fit(X_train, y_train)
+    val_score = grid_search.score(X_val, y_val)
+    st.write('검증 데이터셋 R^2 점수:', val_score)
 
-    st.write(models)
-    st.write('모델의 예측 값',pred)
 
     return model
 # 랜덤포레스트 모델
