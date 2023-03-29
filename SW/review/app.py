@@ -12,6 +12,7 @@ from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
 import datetime
 import pandas as pd
+import numpy as np
 def main():
     with st.sidebar: sidebar()
     contents()
@@ -58,7 +59,8 @@ def col_():
 
     if st.button('입력 완료'):
         st.write("입력이 완료 되었습니당")            
-        input_data = pd.DataFrame([area,year_apt,genre,int_rate],columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
+        input_data = pd.DataFrame(np.array([area,year_apt,genre,int_rate]).reshape(1,-1),
+                                    columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
 
         return input_data
     else:
