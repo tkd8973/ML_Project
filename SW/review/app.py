@@ -212,14 +212,14 @@ def dct():
     score = df['mean_test_score']
 
 
-    fig = px.line(x=range(1,len(df)+1),y=score)
+    fig = px.line(x=range(1,len(df)+1),y=score,name= 'max_depth에 따른 RMSE값 변화')
     st.plotly_chart(fig)
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
     fig2 = go.Figure()
     fig2.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제 값'))
     fig2.add_trace(go.Scatter(x=list(range(len(y_pred))), y=y_pred, mode='lines', name='모델 예측 값'))
-    fig2.update_layout(title='XGBoost 모델 예측 결과',
+    fig2.update_layout(title='Decision Tree 모델 예측 결과',
                     xaxis_title='데이터 인덱스',
                     yaxis_title='예측값')
     st.plotly_chart(fig2)
