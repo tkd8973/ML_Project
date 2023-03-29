@@ -19,6 +19,8 @@ import plotly.graph_objs as go
 import plotly.io as pio
 import plotly.express as px
 
+data = data.read_data()
+
 def main():
     with st.sidebar: sidebar()
     contents()
@@ -83,7 +85,7 @@ def contents():
             background()
             aa=col_()
             st.write(aa)
-            fig = px.scatter(handle_preprocessing(), x='전용면적(㎡)', y='평당가', color='시군구')
+            fig = px.scatter(data, x='전용면적(㎡)', y='평당가', color='시군구')
             st.plotly_chart(fig)
         with tab1: 
             tab1.subheader("📈Linear Regression📈")
