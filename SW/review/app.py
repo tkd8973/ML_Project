@@ -150,7 +150,7 @@ def knn():
     for i in range(0,6):
         if i==0:
             continue
-        model = KNeighborsRegressor(n_neighbors=i,weights='distance')
+        model = KNeighborsRegressor(metric= 'euclidean', n_neighbors = 1, weight = 'uniform')
         model.fit(X_train,y_train)
 
         pred=model.predict(X_test)
