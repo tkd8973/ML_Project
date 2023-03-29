@@ -205,22 +205,6 @@ def dct():
 
 # XGBoost 모델
 def xgb():
-    X_train,y_train,X_test,y_test = load_data()
-    models = []
-    model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
-    model.fit(X_train,y_train)
-
-    pred=model.predict(X_test)
-    rmse = mean_squared_error(y_test,pred)**0.5
-    models.append(rmse)
-
-    st.write(models)
-    st.write('모델의 예측 값',pred)
-
-    return model
-
-# LGBM 모델
-def lgbm():
     X_train, y_train, X_test, y_test = load_data()
     # 모델 훈련 및 예측
     model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
@@ -237,9 +221,23 @@ def lgbm():
                     yaxis_title='예측값')
     st.plotly_chart(fig)
     st.write('모델의 RMSE:', rmse)
-
-    return model
     '''
+    X_train,y_train,X_test,y_test = load_data()
+    models = []
+    model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
+    model.fit(X_train,y_train)
+
+    pred=model.predict(X_test)
+    rmse = mean_squared_error(y_test,pred)**0.5
+    models.append(rmse)
+
+    st.write(models)
+    st.write('모델의 예측 값',pred)
+
+    return model'''
+
+# LGBM 모델
+def lgbm():
     X_train,y_train,X_test,y_test = load_data()
     models = []
 
@@ -254,7 +252,6 @@ def lgbm():
     st.write('모델의 예측 값',pred)
 
     return model
-'''
 
 if __name__ == '__main__':
     main()
