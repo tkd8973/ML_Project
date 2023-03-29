@@ -123,7 +123,7 @@ def lr(data = None):
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
 
-    if data!=None:
+    if not data.isnull().sum():
         input_pred = model.predict(data)
         st.write('입력한 정보에대한 결과는 ',input_pred)
 
