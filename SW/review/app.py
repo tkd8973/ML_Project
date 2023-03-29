@@ -52,7 +52,6 @@ def col_(i):
             st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
             if st.button('현재 금리 적용', key=23+i):
                 today = datetime.date.today()
-                st.write(f'{today}')
             else:
                 today = datetime.date.today()
         if st.button('예측', key=34+i):
@@ -68,25 +67,30 @@ def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
     with tab0:
-        col_(1)
         background()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
+        col_(1)
         lr() 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
+        col_(3)
         knn()
     with tab3:
-        tab3.subheader("🌲Decision Tree🌲") 
+        tab3.subheader("🌲Decision Tree🌲")
+        col_(5) 
         dct()
     with tab4:
         tab4.subheader("🌳Random Forest🌳") 
+        col_(7)
         rdf()
     with tab5:
         tab5.subheader("💪XGBoost💪") 
+        col_(9)
         xgb()
     with tab6: 
         tab6.subheader("⚡️LightGBM⚡️")
+        col_(11)
         lgbm()
         
 
