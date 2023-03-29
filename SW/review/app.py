@@ -54,14 +54,13 @@ def col_():
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
         if st.button('현재 금리 적용'):
             today = datetime.date.today()
-            int_rate = 3.75
-            st.write(f'현재 선택한 금리는 {int_rate} 입니다')
+            st.write(f'현재 선택한 금리는 {3.75} 입니다')
         else:
             today = datetime.date.today()
             
     if st.button('입력 완료'):
         st.write("입력이 완료 되었습니당")            
-        input_data = pd.DataFrame(np.array([area,year_apt,genre,int_rate]).reshape(1,-1),
+        input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
         st.session_state['flag'] = 'test'
         st.write(ss)
