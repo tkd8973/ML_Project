@@ -121,7 +121,7 @@ def lr():
 
     pred= model.predict(X_test)
     rmse = mean_squared_error(y_test,pred)**0.5
-    st.write('모델의 RMSE 값',models)
+    st.write('모델의 RMSE 값',rmse)
     st.write('모델의 예측 값',pred)
 
 
