@@ -123,7 +123,7 @@ def load_data():
 def lr():
     X_train,y_train,X_test,y_test = load_data()
     models = []
-    model = LinearRegression(n_jobs=-1)
+    model = LinearRegression()
     model.fit(X_train,y_train)
 
     pred= model.predict(X_test)
