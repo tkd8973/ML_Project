@@ -209,6 +209,12 @@ def dct():
     # rmse = grid['mean_test_score']
     # st.write(rmse)
     st.write(df)
+    score = df['mean_test_score']
+
+
+    fig = px.line(x=range(1,5),y=score)
+    st.plotly_chart(fig)
+    
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
 
