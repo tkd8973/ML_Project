@@ -207,10 +207,10 @@ def dct():
     st.write(grid.best_params_)
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
-    y_pred = grid.predict(X_test)
+    estimator = grid.best_estimator_
+    y_pre = estimator.predict(X_test)
+    
     st.write(y_pred)
-    # models.append(rmse)
-
     # st.write(models)
     # st.write('모델의 예측 값',pred)
 
