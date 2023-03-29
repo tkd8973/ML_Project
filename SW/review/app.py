@@ -55,8 +55,14 @@ def col_():
                 int_rate = 3.75
             else:
                 today = datetime.date.today()
-        input_data = [area,year,genre,int_rate]
-    return input_data
+
+    if st.button('입력 완료', key=2):
+        st.write("입력이 완료 되었습니당")            
+        input_data = pd.DataFrame([area,year,genre,int_rate],columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
+
+        return input_data
+    else:
+        st.write("")            
 
 def contents():
 
