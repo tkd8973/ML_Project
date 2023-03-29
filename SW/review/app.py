@@ -62,8 +62,7 @@ def col_():
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
-        st.session_state['set_data'] = 'test'
-        st.write(ss)
+
         return input_data
 
 def contents():
@@ -94,6 +93,7 @@ def contents():
 
 def background():
     st.dataframe(handle_preprocessing())
+
 def load_data():
     datas = handle_preprocessing()
     train = datas.loc[datas.index < '2023-01-01']
@@ -121,10 +121,6 @@ def lr(data = None):
         models.append(rmse)
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
-
-    if st.session_state['flag'] == 'test':
-        input_pred = model.predict(data)
-        st.write('입력한 정보에대한 결과는 ',input_pred)
 
 # knn 모델
 def knn(data = None):
