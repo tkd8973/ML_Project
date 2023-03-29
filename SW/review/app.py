@@ -202,13 +202,13 @@ def dct():
     model = DecisionTreeRegressor()
 
     grid = GridSearchCV(model, param_grid=param_grid)
-    grid.fit(x_train, y_train)
+    grid.fit(X_train, y_train)
     st.write(grid.best_score_)
     st.write(grid.best_params_)
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
 
-    st.write(x_test[:2])
+    st.write(X_test[:2])
     # models.append(rmse)
 
     # st.write(models)
