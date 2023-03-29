@@ -163,6 +163,7 @@ def knn():
                                  zaxis_title="Mean test score"))
     st.plotly_chart(fig)
 
+    
 # 랜덤포레스트 모델
 def rdf():
     X_train,y_train,X_test,y_test = load_data()
