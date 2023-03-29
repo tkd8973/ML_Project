@@ -211,8 +211,8 @@ def dct():
     y_pred = estimator.predict(X_test)
     
     st.write(y_pred)
-    # st.write(models)
-    # st.write('모델의 예측 값',pred)
+    score = grid.score(x_test, y_test)
+    st.write(score)
 
     return grid
 
