@@ -147,7 +147,7 @@ def knn():
     # 데이터 로드
     X_train, y_train, X_test, y_test = load_data()
     # 모델 훈련
-    param_grid = {'n_neighbors': range(1,len(y_train)),
+    param_grid = {'n_neighbors': range(1,len(y_train)-1),
                   'weights': ['uniform', 'distance'],
                   'p': [1, 2, 3]}
     model = KNeighborsRegressor()
