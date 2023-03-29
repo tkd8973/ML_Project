@@ -174,7 +174,7 @@ def rdf():
     n_estimators_range = range(min_estimators, max_estimators+1, step)
     r2_scores = []
     for n_estimators in n_estimators_range:
-        model = RandomForestRegressor(n_estimators=n_estimators, random_state=42)
+        model = RandomForestRegressor(n_estimators=n_estimators)
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
 
@@ -204,13 +204,9 @@ def dct():
     grid = GridSearchCV(model, param_grid=param_grid)
     grid.fit(X_train, y_train)
     st.write(grid.best_score_)
-    st.write(grid.best_params_)
     df = pd.DataFrame(grid.cv_results_)
-    # rmse = grid['mean_test_score']
-    # st.write(rmse)
     st.write(df)
     score = df['mean_test_score']
-
 
     fig = px.line(x=range(1,len(df)+1),y=score,title= 'max_depth에 따른 RMSE값 변화')
     st.plotly_chart(fig)
