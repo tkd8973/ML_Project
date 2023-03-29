@@ -184,8 +184,8 @@ def rdf():
         r2_scores.append(r2)
     # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=list(range(len(y_test))), y=r2_scores, mode='lines', name='R²'))
-    fig.add_trace(go.Scatter(x=list(range(len(y_pred))), y=rmse_, mode='lines', name='RMSE'))
+    fig.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제값'))
+    fig.add_trace(go.Scatter(x=list(range(len(y_pred))), y=y_pred, mode='lines', name='예측값'))
     fig.update_layout(title='XGBoost 모델 예측 결과',
                     xaxis_title='데이터 인덱스',
                     yaxis_title='예측값')
