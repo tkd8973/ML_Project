@@ -153,18 +153,11 @@ def knn():
     model = KNeighborsRegressor()
     model.fit(X_train,y_train)
 
-    gs = GridSearchCV(knn, grid_params, cv=10)
-    gs.fit(X_train, y_train)
-
-    st.write(gs)
     pred=model.predict(X_test)
     rmse = mean_squared_error(y_test,pred)**0.5
     
     models.append(rmse)
-
-    result = np.array(models).reshape(1,-1)
-
-    # st.write(result)
+    st.write(result)
     
     return model
 
