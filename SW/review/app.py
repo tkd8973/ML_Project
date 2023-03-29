@@ -209,9 +209,8 @@ def dct():
     st.write(df)
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
-    
-    st.write(y_pred)
-    score = grid.score(X_test, y_test)
+
+    score = grid.score(y_test,y_pred)
     st.write(score)
 
     return grid
