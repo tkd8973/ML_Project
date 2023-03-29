@@ -44,7 +44,7 @@ def col_():
         # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
         st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
         genre = st.radio(
-            "거래 유형을 선택해 주세요 (중개거래, 직거래)",
+            "거래 유형을 선택해 주세요",
             ('중개거래', '직거래'))
         st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
     with col2 :
@@ -74,32 +74,29 @@ def contents():
     with tab0:
         background()
         aa=col_()
-        st.write(aa)
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-        lr() 
+        lr(aa) 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
-        knn()
+        knn(aa)
     with tab3:
         tab3.subheader("🌲Decision Tree🌲")
-        dct()
+        dct(aa)
     with tab4:
         tab4.subheader("🌳Random Forest🌳") 
-        rdf()
+        rdf(aa)
     with tab5:
         tab5.subheader("💪XGBoost💪") 
-        xgb()
+        xgb(aa)
     with tab6: 
         tab6.subheader("⚡️LightGBM⚡️")
-        lgbm()
+        lgbm(aa)
         
 
 def background():
     st.dataframe(handle_preprocessing())
-
-# lr 모델
-def lr(data = None):
+def load_data():
     datas = handle_preprocessing()
     train = datas.loc[datas.index < '2023-01-01']
     test = datas.loc[datas.index >= '2023-01-01']
@@ -108,6 +105,10 @@ def lr(data = None):
     X_test = test.drop(['시군구','거래금액(만원)','평당가'],axis=1)
     y_test = test['평당가']
 
+    return X_train,y_train,X_test,y_test
+# lr 모델
+def lr(data = None):
+    X_train,y_train,X_test,y_test = load_data()
     models = []
     for i in range(0,5):
         if i==0:
@@ -122,6 +123,9 @@ def lr(data = None):
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
 
+    if data:
+        input_pred = model.predict(data)
+        st.write('입력한 정보에대한 결과는 ',input_pred)
 
 # knn 모델
 def knn():
