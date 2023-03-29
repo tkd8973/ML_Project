@@ -75,6 +75,7 @@ def contents():
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
         lr()
+        st.write(aa)
     with tab2: 
         tab2.subheader("🤝KNN🤝")
         knn()
