@@ -39,7 +39,6 @@ def sidebar() :
 
 
 def col_():
-    ss = st.session_state
     col1,col2 = st.columns([1, 1])
     with col1 :
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
