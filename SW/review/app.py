@@ -78,6 +78,7 @@ def contents():
     with tab0:
         background()
         aa=col_()
+        st.write(aa)
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
         lr_model = lr()
