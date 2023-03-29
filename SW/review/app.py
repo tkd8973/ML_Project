@@ -205,9 +205,9 @@ def dct():
     grid.fit(X_train, y_train)
     st.write(grid.best_score_)
     st.write(grid.best_params_)
-    rmse = grid['mean_test_score']
-    st.write(rmse)
     df = pd.DataFrame(grid.cv_results_)
+    # rmse = grid['mean_test_score']
+    # st.write(rmse)
     st.write(df)
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
