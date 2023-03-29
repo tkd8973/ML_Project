@@ -149,7 +149,7 @@ def knn():
     r2_scores=[]
     rmse_ = []
     # 모델 훈련
-    for i in range(1,5):
+    for i in range(1,6):
         model = KNeighborsRegressor(i,weights='distance')
         model.fit(X_train,y_train)
         pred = model.predict(X_test)
@@ -158,6 +158,7 @@ def knn():
         r2=r2_score(y_test,pred)
         r2_scores.append(r2)
         rmse_.append(rmse)
+
     st.write(r2_scores)
     st.write(rmse_)
 
@@ -165,7 +166,7 @@ def knn():
 # 랜덤포레스트 모델
 def rdf():
     X_train,y_train,X_test,y_test = load_data()
-
+    rmse_ = []
     models = []
     min_estimators = 50
     max_estimators = 200
@@ -176,10 +177,18 @@ def rdf():
         model = RandomForestRegressor(n_estimators=n_estimators, random_state=42)
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
+
+        rmse = mean_squared_error(y_test,pred)**0.5
+        rmse_.append(rmse)
         r2 = r2_score(y_test, y_pred)
         r2_scores.append(r2)
     # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
-    fig = px.line(x=n_estimators_range,y= r2_scores )
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=list(range(len(y_test))), y=r2_scores, mode='lines', name='R²'))
+    fig.add_trace(go.Scatter(x=list(range(len(pred))), y=rmse_, mode='lines', name='RMSE'))
+    fig.update_layout(title='XGBoost 모델 예측 결과',
+                    xaxis_title='데이터 인덱스',
+                    yaxis_title='예측값')
     st.plotly_chart(fig)
     return model
 
