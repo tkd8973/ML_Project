@@ -197,7 +197,7 @@ def rdf():
 # 결정트리 모델
 def dct():
     X_train,y_train,X_test,y_test = load_data()
-    param_grid = {'criterion':['rmse'], 'max_depth':[None,2,3,4,5]}
+    param_grid = {'max_depth':[None,2,3,4,5]}
     models = []
 
     model = DecisionTreeRegressor()
