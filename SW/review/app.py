@@ -75,40 +75,39 @@ def col_():
     
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
-    
-    with tab0:
-        try:
+    try:
+        with tab0:
             aa=col_()
             st.write(aa)
-        except:
             background()
-        
+            
 
-    with tab1: 
-        tab1.subheader("📈Linear Regression📈")
-        lr_model = lr()
-        Linear_(lr_model,aa)
-    with tab2: 
-        tab2.subheader("🤝KNN🤝")
-        knn_model = knn()
-        KNN_(knn_model,aa)
-    with tab3:
-        tab3.subheader("🌲Decision Tree🌲")
-        decision = dct()
-        DCT_(decision,aa)
-    with tab4:
-        tab4.subheader("🌳Random Forest🌳") 
-        rf = rdf()
-        RDF_(rf,aa)
-    with tab5:
-        tab5.subheader("💪XGBoost💪") 
-        xgb_model = xgb()
-        XGB_(xgb_model,aa)
-    with tab6: 
-        tab6.subheader("⚡️LightGBM⚡️")
-        lgbmR = lgbm()
-        LGBM_(lgbmR,aa)
-        
+        with tab1: 
+            tab1.subheader("📈Linear Regression📈")
+            lr_model = lr()
+            Linear_(lr_model,aa)
+        with tab2: 
+            tab2.subheader("🤝KNN🤝")
+            knn_model = knn()
+            KNN_(knn_model,aa)
+        with tab3:
+            tab3.subheader("🌲Decision Tree🌲")
+            decision = dct()
+            DCT_(decision,aa)
+        with tab4:
+            tab4.subheader("🌳Random Forest🌳") 
+            rf = rdf()
+            RDF_(rf,aa)
+        with tab5:
+            tab5.subheader("💪XGBoost💪") 
+            xgb_model = xgb()
+            XGB_(xgb_model,aa)
+        with tab6: 
+            tab6.subheader("⚡️LightGBM⚡️")
+            lgbmR = lgbm()
+            LGBM_(lgbmR,aa)
+    except:
+        pass
 def background():
     st.dataframe(handle_preprocessing())
 
