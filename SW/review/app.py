@@ -84,7 +84,7 @@ def contents():
             background()
             aa=col_()
             st.write(aa)
-            fig = px.scatter(data, x='전용면적(㎡)', y='평당가', color='시군구')
+            fig = px.scatter(data, x='전용면적(㎡)', y='거래금액(만원)', color='시군구')
             st.plotly_chart(fig)
         with tab1: 
             tab1.subheader("📈Linear Regression📈")
