@@ -1,3 +1,5 @@
+import streamlit as st
+
 def Linear_(model,data):
     pred = model.predict(data)
     st.write(pred)
