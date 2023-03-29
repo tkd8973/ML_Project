@@ -125,9 +125,9 @@ def lr(data = None):
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
 
-    if :
-        input_pred = model.predict(data)
-        st.write('입력한 정보에대한 결과는 ',input_pred)
+    # if :
+    #     input_pred = model.predict(data)
+    #     st.write('입력한 정보에대한 결과는 ',input_pred)
 
 # knn 모델
 def knn(data = None):
