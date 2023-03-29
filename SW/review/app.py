@@ -54,9 +54,10 @@ def col_():
         if st.button('현재 금리 적용'):
             today = datetime.date.today()
             int_rate = 3.75
+            st.write(f'현재 선택한 금리는 {int_rate} 입니다')
         else:
             today = datetime.date.today()
-
+            
     if st.button('입력 완료'):
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,int_rate]).reshape(1,-1),
@@ -98,7 +99,7 @@ def background():
     st.dataframe(handle_preprocessing())
 
 # lr 모델
-def lr():
+def lr(data = None):
     datas = handle_preprocessing()
     train = datas.loc[datas.index < '2023-01-01']
     test = datas.loc[datas.index >= '2023-01-01']
