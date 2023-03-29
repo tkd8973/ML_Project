@@ -231,8 +231,13 @@ def lgbm():
         pred=model.predict(X_test)
         rmse = mean_squared_error(y_test,pred)**0.5
         models.append(rmse)
+    models = np.array(models)
+    x = range(0, len(models))
+    fig =px.line(x=x,y=models)
+    st.plotly_chart(fig)
     st.write(models)
     st.write('모델의 예측 값',pred)
+
     return model
 
 if __name__ == '__main__':
