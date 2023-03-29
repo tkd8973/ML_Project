@@ -152,8 +152,7 @@ def knn():
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
     mean_test_scores = grid_search.cv_results_['mean_test_score']
-    mean_test = pd.DataFrame(mean_test_scores)
-    fig = px.line(mean_test,x=mean_test.index,y=mean_test.values)
+    fig = px.line(x=len(mean_test),y=mean_test_scores.reshape(1,-1))
     fig.show()
     st.plotly(fig)
     st.write(mean_test_scores)
