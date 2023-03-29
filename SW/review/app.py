@@ -159,7 +159,7 @@ def knn():
         models.append(rmse)
 
     result = np.array(models)
-    fig = px.line(x=np.arange(0,len(result)),y = result.reshape(-1,1) )
+    fig = px.line(x=(np.arange(0,len(result))),y = result.reshape(-1,1))
     st.plotly_chart(fig)
     
     return model
