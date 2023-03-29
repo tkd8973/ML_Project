@@ -146,10 +146,6 @@ def knn():
     X_train,y_train,X_test,y_test = load_data()
     
     models = []
-    grid_params = {'n_neighbors' : list(range(1,10)),
-    'weights' : ["uniform", "distance"],
-    'metric' : ['euclidean', 'manhattan', 'minkowski']}
-    
     model = KNeighborsRegressor()
     model.fit(X_train,y_train)
 
@@ -157,6 +153,7 @@ def knn():
     rmse = mean_squared_error(y_test,pred)**0.5
     
     models.append(rmse)
+    
     st.write(result)
     
     return model
