@@ -84,7 +84,7 @@ def contents():
     with tab2: 
         tab2.subheader("🤝KNN🤝")
         knn_model = knn()
-        KNN_(knn_mdoel,aa)
+        KNN_(knn_model,aa)
     with tab3:
         tab3.subheader("🌲Decision Tree🌲")
         decision = dct()
