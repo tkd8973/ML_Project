@@ -208,7 +208,7 @@ def dct():
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
     estimator = grid.best_estimator_
-    y_pre = estimator.predict(X_test)
+    y_pred = estimator.predict(X_test)
     
     st.write(y_pred)
     # st.write(models)
