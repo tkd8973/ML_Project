@@ -176,7 +176,7 @@ def rdf():
     # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
     fig = px.line(x=n_estimators_range,y=r2_scores)
     fig.show()
-    st.plotly(fig)
+    st.plotly(r2_scores)
     return model
 # 결정트리 모델
 def dct():
