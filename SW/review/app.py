@@ -147,7 +147,7 @@ def knn():
     model = KNeighborsRegressor()
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
-    val_score = grid_search.score(X_val, y_val)
+    val_score = grid_search.score(X_test, y_test)
     st.write('검증 데이터셋 R^2 점수:', val_score)
 
 
