@@ -108,25 +108,24 @@ def load_data():
 
 # lr 모델
 def lr(data = None):
-    if st.session_state['flag'] == test:
-        X_train,y_train,X_test,y_test = load_data()
-        models = []
-        for i in range(0,5):
-            if i==0:
-                continue
-            model = LinearRegression(n_jobs=-1)
-            model.fit(X_train,y_train)
+    X_train,y_train,X_test,y_test = load_data()
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = LinearRegression(n_jobs=-1)
+        model.fit(X_train,y_train)
 
-            pred= model.predict(X_test)
-            rmse = mean_squared_error(y_test,pred)**0.5
-            
-            models.append(rmse)
-        st.write('모델의 RMSE 값',models)
-        st.write('모델의 예측 값',pred)
+        pred= model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
         
+        models.append(rmse)
+    st.write('모델의 RMSE 값',models)
+    st.write('모델의 예측 값',pred)
+
+    if st.session_state['flag'] == test:
         input_pred = model.predict(data)
         st.write('입력한 정보에대한 결과는 ',input_pred)
-    
 
 # knn 모델
 def knn(data = None):
