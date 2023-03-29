@@ -208,6 +208,7 @@ def dct():
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
     y_pred = grid.predict(X_test)
+    st.write(y_pred)
     # models.append(rmse)
 
     # st.write(models)
