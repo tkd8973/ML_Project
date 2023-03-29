@@ -157,6 +157,7 @@ def knn():
     st.write(mean_test_scores)
     # Extract hyperparameters from parameter settings
     return grid_search
+
 # 랜덤포레스트 모델
 def rdf():
     X_train,y_train,X_test,y_test = load_data()
@@ -177,6 +178,8 @@ def rdf():
     fig = px.line(x=n_estimators_range,y= r2_scores )
     st.plotly_chart(fig)
     return model
+
+
 # 결정트리 모델
 def dct():
     X_train,y_train,X_test,y_test = load_data()
@@ -202,15 +205,12 @@ def dct():
 def xgb():
     X_train,y_train,X_test,y_test = load_data()
     models = []
-    for i in range(0,5):
-        if i==0:
-            continue
-        model = XGBRegressor(n_estimators=100, learning_rate=0.1, max_depth=i, random_state=100)
-        model.fit(X_train,y_train)
+    model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
+    model.fit(X_train,y_train)
 
-        pred=model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        models.append(rmse)
+    pred=model.predict(X_test)
+    rmse = mean_squared_error(y_test,pred)**0.5
+    models.append(rmse)
 
     st.write(models)
     st.write('모델의 예측 값',pred)
@@ -219,17 +219,19 @@ def xgb():
 
 # LGBM 모델
 def lgbm():
-    model = LGBMRegressor(num_leaves=31, max_depth=15, learning_rate=0.1)
-    gs_model = GridSearchCV(model, param_grid=parameter, n_jobs=-1, cv=5, verbose=1)
-    parameter = {
-    'learning_rate': [0.01, 0.1, 0.3],
-    'max_depth': [5, 7, 10],
-    'num_leaves': [31, 35, 40]
-    }
-    gs_model.fit(X_train, y_train)
-    scores_df = pd.DataFrame(gs_model.cv_results_)
-    st.write(scores_df)
-    return gs_model
+    X_train,y_train,X_test,y_test = load_data()
+    models = []
+    for i in range(0,5):
+        if i==0:
+            continue
+        model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
+        model.fit(X_train,y_train)
+        pred=model.predict(X_test)
+        rmse = mean_squared_error(y_test,pred)**0.5
+        models.append(rmse)
+    st.write(models)
+    st.write('모델의 예측 값',pred)
+    return model
 
 if __name__ == '__main__':
     main()
