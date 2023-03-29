@@ -96,11 +96,11 @@ def contents():
     with tab5:
         tab5.subheader("💪XGBoost💪") 
         xgb_model = xgb()
-        XGB(xgb_model,aa)
+        XGB_(xgb_model,aa)
     with tab6: 
         tab6.subheader("⚡️LightGBM⚡️")
         lgbmR = lgbm()
-        LGBM(lgbmR,aa)
+        LGBM_(lgbmR,aa)
         
 def background():
     st.dataframe(handle_preprocessing())
