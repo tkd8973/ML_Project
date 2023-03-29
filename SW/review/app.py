@@ -58,11 +58,11 @@ def col_():
         else:
             today = datetime.date.today()
             
-    if st.button('입력 완료'):
+    if st.button('입력 완료',key='set_data'):
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
-        st.session_state['flag'] = 'test'
+        st.session_state['set_data'] = 'test'
         st.write(ss)
         return input_data
 
