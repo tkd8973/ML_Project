@@ -78,9 +78,9 @@ def col_():
     
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
+    data = read_data()
     try:
         with tab0:
-            data = read_data()
             background()
             aa=col_()
             st.write(aa)
