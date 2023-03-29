@@ -212,7 +212,7 @@ def dct():
     score = df['mean_test_score']
 
 
-    fig = px.line(x=range(1,5),y=score)
+    fig = px.line(x=range(1,len(df)+1),y=score)
     st.plotly_chart(fig)
 
     estimator = grid.best_estimator_
