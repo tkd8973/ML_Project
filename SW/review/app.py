@@ -38,6 +38,7 @@ def sidebar() :
 
 
 def col_():
+    ss = st.session_state
     col1,col2 = st.columns([1, 1])
     with col1 :
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
@@ -62,10 +63,10 @@ def col_():
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,int_rate]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
-
+        st.write()
         return input_data
     else:
-        st.write("")            
+        st.write(ss)            
 
 def contents():
 
@@ -106,6 +107,7 @@ def load_data():
     y_test = test['평당가']
 
     return X_train,y_train,X_test,y_test
+
 # lr 모델
 def lr(data = None):
     X_train,y_train,X_test,y_test = load_data()
@@ -123,7 +125,7 @@ def lr(data = None):
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
 
-    if not data.isnull().sum():
+    if :
         input_pred = model.predict(data)
         st.write('입력한 정보에대한 결과는 ',input_pred)
 
