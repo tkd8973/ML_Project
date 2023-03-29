@@ -152,6 +152,7 @@ def knn():
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
     mean_test_scores = grid_search.cv_results_['mean_test_score']
+    st.write(type(mean_test_scores))
     st.write(mean_test_scores)
     # Extract hyperparameters from parameter settings
     return grid_search
