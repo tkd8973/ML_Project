@@ -196,29 +196,32 @@ def rdf():
 # 결정트리 모델
 def dct():
     X_train,y_train,X_test,y_test = load_data()
-
+    param_grid = {'criterion':['mse'], 'max_depth':[None,2,3,4]}
     models = []
-    for i in range(0,5):
-        if i==0:
-            continue
-        model = DecisionTreeRegressor(random_state=i)
-        model.fit(X_train,y_train)
 
-        pred=model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        
-        models.append(rmse)
+    model = DecisionTreeRegressor()
+    
 
-    st.write(models)
-    st.write('모델의 예측 값',pred)
+    pred=model.predict(X_test)
+    rmse = mean_squared_error(y_test,pred)**0.5
+    grid = GridSearchCV(estimator, param_grid=param_grid)
+    grid.fit(x_train, y_train)
+    st.write(grid.best_score_)
+    st.write(grid.best_params_)
+    df = pd.DataFrame(grid.cv_results_)
+    st.write(df)
+    # models.append(rmse)
 
-    return model
+    # st.write(models)
+    # st.write('모델의 예측 값',pred)
+
+    return grid
 
 # XGBoost 모델
 def xgb():
     X_train, y_train, X_test, y_test = load_data()
     # 모델 훈련 및 예측
-    model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
+    model = XGBRegressor()
     model.fit(X_train, y_train)
     pred = model.predict(X_test)
     # 모델 성능 평가
@@ -234,21 +237,7 @@ def xgb():
     st.write('모델의 RMSE:', rmse)
     
     return model
-    # X_train,y_train,X_test,y_test = load_data()
-    # models = []
-    # model = XGBRegressor(n_estimators=200, learning_rate=0.1, max_depth=5)
-    # model.fit(X_train,y_train)
 
-    # pred=model.predict(X_test)
-    # rmse = mean_squared_error(y_test,pred)**0.5
-    # models.append(rmse)
-
-    # st.write(models)
-    # st.write('모델의 예측 값',pred)
-
-    # return model
-
-# LGBM 모델
 def lgbm():
     X_train,y_train,X_test,y_test = load_data()
     models = []
