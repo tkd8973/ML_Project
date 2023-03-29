@@ -157,7 +157,9 @@ def knn():
         rmse = mean_squared_error(y_test,pred)**0.5
         
         models.append(rmse)
-    fig = px.line(x=list(0,6),y= rmse )
+
+    result = np.array(models)
+    fig = px.line(x=list(0,6),y= result.reshape(1,-1) )
     st.plotly_chart(fig)
     
     return grid_search
