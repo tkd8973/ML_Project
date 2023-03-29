@@ -74,7 +74,9 @@ def contents():
         aa=col_()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-        lr() 
+        path ='LR.joblib'
+        lr()
+        predict(path,aa) 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
         knn()
@@ -91,7 +93,6 @@ def contents():
         tab6.subheader("⚡️LightGBM⚡️")
         lgbm()
         
-
 def background():
     st.dataframe(handle_preprocessing())
 
@@ -105,22 +106,24 @@ def load_data():
     y_test = test['평당가']
 
     return X_train,y_train,X_test,y_test
+def predict(path,data):
+    clf = joblib.load(path)
+
+    return st.write(clf.predict(data))
 
 # lr 모델
 def lr():
     X_train,y_train,X_test,y_test = load_data()
     models = []
-    for i in range(0,5):
-        if i==0:
-            continue
-        model = LinearRegression(n_jobs=-1)
-        model.fit(X_train,y_train)
+    model = LinearRegression(n_jobs=-1)
+    model.fit(X_train,y_train)
 
-        pred= model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        models.append(rmse)
+    pred= model.predict(X_test)
+    rmse = mean_squared_error(y_test,pred)**0.5
+    joblib.dump(model, './LR.pkl')
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
+
 
 # knn 모델
 def knn(data = None):
