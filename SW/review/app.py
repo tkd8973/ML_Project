@@ -153,7 +153,7 @@ def knn():
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
     results = pd.DataFrame(grid_search.cv_results_)
-    fig = go.Figure(data=go.Surface(x=results['param_n_neighbors'], y=results['param_p'], z=results['mean_test_score'].values.reshape(1,-1)))
+    fig = go.Figure(data=go.Surface(x=results['param_n_neighbors'], y=results['param_p'], z=results['mean_test_score'].values.reshape(4,3)))
     fig.update_layout(title="KNN Model Performance",
                       scene=dict(xaxis_title="Number of neighbors",
                                  yaxis_title="Power parameter (p)",
