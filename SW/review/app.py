@@ -156,7 +156,7 @@ def knn():
 
         rmse = mean_squared_error(y_test,pred)**0.5
         r2=r2_score(y_test,pred)
-        r2_scores.append(r2_score)
+        r2_scores.append(r2)
         rmse_.append(rmse)
     st.write(r2_scores)
     st.write(rmse_)
