@@ -145,7 +145,6 @@ def lr():
 def knn():
     X_train,y_train,X_test,y_test = load_data()
     
-    #@title KNN
     models = []
     model = KNeighborsRegressor(metric='euclidean', n_neighbors=1, weights='uniform')
     model.fit(X_train,y_train)
