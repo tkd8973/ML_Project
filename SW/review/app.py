@@ -37,24 +37,24 @@ def sidebar() :
 
 
 def col_():
-        col1,col2 = st.columns([1, 1])
-        with col1 :
-            area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
-            # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
-            st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
-            genre = st.radio(
-                "거래 유형을 선택해 주세요 (중개거래, 직거래)",
-                ('중개거래', '직거래'))
-            st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
-        with col2 :
-            year_apt = st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1)
-            # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
-            st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
-            if st.button('현재 금리 적용'):
-                today = datetime.date.today()
-                int_rate = 3.75
-            else:
-                today = datetime.date.today()
+    col1,col2 = st.columns([1, 1])
+    with col1 :
+        area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
+        # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+        genre = st.radio(
+            "거래 유형을 선택해 주세요 (중개거래, 직거래)",
+            ('중개거래', '직거래'))
+        st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
+    with col2 :
+        year_apt = st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1)
+        # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
+        st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
+        if st.button('현재 금리 적용'):
+            today = datetime.date.today()
+            int_rate = 3.75
+        else:
+            today = datetime.date.today()
 
     if st.button('입력 완료'):
         st.write("입력이 완료 되었습니당")            
