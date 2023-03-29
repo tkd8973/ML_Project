@@ -181,7 +181,7 @@ def rdf():
         rmse = mean_squared_error(y_test,y_pred)**0.5
         rmse_.append(rmse)
 
-    fig = px.line(x=range(1,len(rmse_)+1),y=rmse_,title= 'estimators 변화에 따른 RMSE값 변화')
+    fig = px.line(x=n_estimators_range,y=rmse_,title= 'estimators 변화에 따른 RMSE값 변화')
     st.plotly_chart(fig)
     # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
     fig2 = go.Figure()
