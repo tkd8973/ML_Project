@@ -66,6 +66,8 @@ def col_():
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
+    else :
+        st.write('입력해주세요')
 
         return input_data
 
@@ -78,7 +80,6 @@ def contents():
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
         lr()
-        st.write(aa)
     with tab2: 
         tab2.subheader("🤝KNN🤝")
         knn()
@@ -108,11 +109,9 @@ def load_data():
     y_test = test['평당가']
 
     return X_train,y_train,X_test,y_test
-def predict(path,data):
-    clf = joblib.load(path)
+def predict(model):
 
-    return st.write(clf.predict(data))
-
+    return 
 # lr 모델
 def lr():
     X_train,y_train,X_test,y_test = load_data()
