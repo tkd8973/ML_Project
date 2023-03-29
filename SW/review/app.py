@@ -71,7 +71,7 @@ def contents():
         background()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-         lr() 
+        lr() 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
         knn()
