@@ -207,8 +207,7 @@ def dct():
     st.write(grid.best_params_)
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
-
-    st.write(X_test[:2])
+    y_pred = grid.predict(X_test)
     # models.append(rmse)
 
     # st.write(models)
