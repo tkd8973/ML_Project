@@ -123,7 +123,7 @@ def lr(data = None):
     st.write('모델의 RMSE 값',models)
     st.write('모델의 예측 값',pred)
 
-    if st.session_state['flag'] == test:
+    if st.session_state['flag'] == 'test':
         input_pred = model.predict(data)
         st.write('입력한 정보에대한 결과는 ',input_pred)
 
