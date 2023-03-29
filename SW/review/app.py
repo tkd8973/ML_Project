@@ -15,6 +15,7 @@ import pandas as pd
 import numpy as np
 import joblib
 from ML_Model import *
+
 def main():
     with st.sidebar: sidebar()
     contents()
@@ -72,7 +73,7 @@ def col_():
 
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
-    
+    aa = [0,0,0,0]
     with tab0:
         background()
         aa=col_()
@@ -218,12 +219,12 @@ def lgbm():
     for i in range(0,5):
         if i==0:
             continue
-        model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
-        model.fit(X_train,y_train)
-
         pred=model.predict(X_test)
         rmse = mean_squared_error(y_test,pred)**0.5
         models.append(rmse)
+
+        model = LGBMRegressor(num_leaves=16, max_depth=4, learning_rate=0.1)
+        model.fit(X_train,y_train)
 
     st.write(models)
     st.write('모델의 예측 값',pred)
