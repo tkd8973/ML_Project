@@ -41,6 +41,9 @@ def sidebar() :
 
 
 def col_():
+    area = 0
+    year_apt = 0
+    genre = 0
     col1,col2 = st.columns([1, 1])
     with col1 :
         area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
@@ -68,11 +71,8 @@ def col_():
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
-    
         return input_data
     
-    else:
-        return [0,0,0,0]
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
