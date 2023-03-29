@@ -77,9 +77,13 @@ def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
     with tab0:
-        background()
-        aa=col_()
-        st.write(aa)
+        try:
+            aa=col_()
+            st.write(aa)
+        except:
+            background()
+        
+
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
         lr_model = lr()
