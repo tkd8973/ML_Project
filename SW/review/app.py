@@ -152,10 +152,13 @@ def knn():
     model = KNeighborsRegressor()
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
-    mean_test_scores = grid_search.cv_results_['mean_test_score']
-    
-    st.write(mean_test_scores)
-    # Extract hyperparameters from parameter settings
+    results = pd.DataFrame(grid_search.cv_results_)
+    fig = go.Figure(data=go.Surface(x=results['param_n_neighbors'], y=results['param_p'], z=results['mean_test_score'].values.reshape(4, 3)))
+    fig.update_layout(title="KNN Model Performance",
+                      scene=dict(xaxis_title="Number of neighbors",
+                                 yaxis_title="Power parameter (p)",
+                                 zaxis_title="Mean test score"))
+    st.plotly_chart(fig)
     return grid_search
 
 # 랜덤포레스트 모델
