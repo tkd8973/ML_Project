@@ -14,7 +14,7 @@ import datetime
 import pandas as pd
 import numpy as np
 import joblib
-import ML_Model
+from ML_Model import *
 def main():
     with st.sidebar: sidebar()
     contents()
