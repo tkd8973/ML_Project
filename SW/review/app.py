@@ -18,7 +18,7 @@ from ML_Model import *
 import plotly.graph_objs as go
 import plotly.io as pio
 import plotly.express as px
-
+import matplotlib.pyplot as plt
 def main():
     with st.sidebar: sidebar()
     contents()
@@ -152,9 +152,7 @@ def knn():
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
     mean_test_scores = grid_search.cv_results_['mean_test_score'].reshape(1,-1)
-    fig = px.line(x=np.arange(len(mean_test_scores)).reshape(1,-1),y=mean_test_scores)
-    fig.show()
-    st.plotly(fig)
+    
     st.write(mean_test_scores)
     # Extract hyperparameters from parameter settings
     return grid_search
@@ -163,20 +161,23 @@ def rdf():
     X_train,y_train,X_test,y_test = load_data()
 
     models = []
-    for i in range(0,5):
-        if i==0:
-            continue
-        model = RandomForestRegressor(n_estimators=150,max_depth=i)
-        model.fit(X_train,y_train)
-
-        pred=model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        
-        models.append(rmse)
-
-    st.write(models)
-    st.write('모델의 예측 값',pred) 
-
+    min_estimators = 50
+    max_estimators = 200
+    step = 50
+    n_estimators_range = range(min_estimators, max_estimators+1, step)
+    r2_scores = []
+    for n_estimators in n_estimators_range:
+        model = RandomForestRegressor(n_estimators=n_estimators, random_state=42)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        r2 = r2_score(y_test, y_pred)
+        r2_scores.append(r2)
+    # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
+    plt.plot(n_estimators_range, r2_scores, marker='o')
+    plt.xlabel("Number of trees")
+    plt.ylabel("R-squared")
+    plt.title("Random Forest R-squared vs. Number of trees")
+    plt.show()
     return model
 # 결정트리 모델
 def dct():
