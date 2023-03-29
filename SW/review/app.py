@@ -231,7 +231,6 @@ def lgbm():
     gs_model.fit(X_train, y_train)
     scores_df = pd.DataFrame(gs_model.cv_results_)
     st.write(scores_df)
-    
     return gs_model
 
 if __name__ == '__main__':
