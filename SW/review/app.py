@@ -196,7 +196,7 @@ def rdf():
 # 결정트리 모델
 def dct():
     X_train,y_train,X_test,y_test = load_data()
-    param_grid = {'criterion':['mse'], 'max_depth':[None,2,3,4]}
+    param_grid = {'criterion':['mse'], 'max_depth':[None,2,3,4,5]}
     models = []
 
     model = DecisionTreeRegressor()
@@ -214,7 +214,7 @@ def dct():
 
     fig = px.line(x=range(1,5),y=score)
     st.plotly_chart(fig)
-    
+
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
 
