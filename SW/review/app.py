@@ -51,7 +51,7 @@ def col_():
             "직거래": 1,
         }
         genre = st.radio("거래 유형을 선택해 주세요", list(options.keys()))
-        st.write("", options[genre])
+        genre = options[genre]
         st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
     with col2 :
         year_apt = st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1)
