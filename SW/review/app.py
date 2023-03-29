@@ -154,7 +154,7 @@ def knn():
         pred = model.predict(X_test)
 
         rmse = mean_squared_error(y_test,pred)**0.5
-        r2=r2_score(y_test,y_pred)
+        r2=r2_score(y_test,pred)
         r2_scores.append(r2_score)
 
     st.write(r2)
