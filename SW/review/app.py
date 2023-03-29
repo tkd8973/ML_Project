@@ -200,16 +200,16 @@ def dct():
     models = []
 
     model = DecisionTreeRegressor()
-    
 
-    pred=model.predict(X_test)
     rmse = mean_squared_error(y_test,pred)**0.5
-    grid = GridSearchCV(estimator, param_grid=param_grid)
+    grid = GridSearchCV(model, param_grid=param_grid)
     grid.fit(x_train, y_train)
     st.write(grid.best_score_)
     st.write(grid.best_params_)
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
+
+    st.write(x_test[:2])
     # models.append(rmse)
 
     # st.write(models)
