@@ -132,7 +132,7 @@ def lr():
     
 
 # knn 모델
-def knn(data = None):
+def knn():
     X_train,y_train,X_test,y_test = load_data()
     
     models = []
@@ -152,7 +152,7 @@ def knn(data = None):
 
     return model
 # 랜덤포레스트 모델
-def rdf(data = None):
+def rdf():
     X_train,y_train,X_test,y_test = load_data()
 
     models = []
@@ -172,7 +172,7 @@ def rdf(data = None):
 
     return model
 # 결정트리 모델
-def dct(data = None):
+def dct():
     X_train,y_train,X_test,y_test = load_data()
 
     models = []
@@ -193,7 +193,7 @@ def dct(data = None):
     return model
 
 # XGBoost 모델
-def xgb(data = None):
+def xgb():
     X_train,y_train,X_test,y_test = load_data()
     models = []
     for i in range(0,5):
@@ -212,7 +212,7 @@ def xgb(data = None):
     return model
 
 # LGBM 모델
-def lgbm(data = None):
+def lgbm():
     X_train,y_train,X_test,y_test = load_data()
 
     models = []
