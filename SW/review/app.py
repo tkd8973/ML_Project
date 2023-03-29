@@ -74,22 +74,22 @@ def contents():
         aa=col_()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-        lr(aa) 
+        lr() 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
-        knn(aa)
+        knn()
     with tab3:
         tab3.subheader("🌲Decision Tree🌲")
-        dct(aa)
+        dct()
     with tab4:
         tab4.subheader("🌳Random Forest🌳") 
-        rdf(aa)
+        rdf()
     with tab5:
         tab5.subheader("💪XGBoost💪") 
-        xgb(aa)
+        xgb()
     with tab6: 
         tab6.subheader("⚡️LightGBM⚡️")
-        lgbm(aa)
+        lgbm()
         
 
 def background():
