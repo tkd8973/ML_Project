@@ -211,7 +211,7 @@ def dct():
     y_pred = estimator.predict(X_test)
     
     st.write(y_pred)
-    score = grid.score(x_test, y_test)
+    score = grid.score(X_test, y_test)
     st.write(score)
 
     return grid
