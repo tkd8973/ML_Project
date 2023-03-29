@@ -205,12 +205,12 @@ def dct():
     grid.fit(X_train, y_train)
     st.write(grid.best_score_)
     st.write(grid.best_params_)
+    rmse = grid['mean_test_score']
+    st.write(rmse)
     df = pd.DataFrame(grid.cv_results_)
     st.write(df)
     estimator = grid.best_estimator_
-    y_pred = estimator.predict(X_test).reshape(1,-1)
-    score = grid.score(y_test,y_pred)
-    st.write(score)
+    y_pred = estimator.predict(X_test)
 
     return grid
 
