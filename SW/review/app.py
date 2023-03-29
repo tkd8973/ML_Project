@@ -153,7 +153,7 @@ def knn():
     grid_search.fit(X_train, y_train)
     mean_test_scores = grid_search.cv_results_['mean_test_score']
     mean_test = pd.DataFrame(mean_test_scores)
-    fig = px.line(mean_test,x=mean_test.index,y=mean_test.values())
+    fig = px.line(mean_test,x=mean_test.index,y=mean_test.values)
     fig.show()
     st.plotly(fig)
     st.write(mean_test_scores)
