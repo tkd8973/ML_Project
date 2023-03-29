@@ -151,7 +151,7 @@ def knn():
     st.write('검증 데이터셋 R^2 점수:', val_score)
 
 
-    return model
+    return grid_search
 # 랜덤포레스트 모델
 def rdf():
     X_train,y_train,X_test,y_test = load_data()
