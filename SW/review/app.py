@@ -9,7 +9,7 @@ import xgboost as xgb
 from lightgbm import LGBMRegressor
 from xgboost import XGBRegressor
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
-from service import get_filtered_data, handle_preprocessing
+from service import get_filtered_data, handle_preprocessing, read_data
 import datetime
 import pandas as pd
 import numpy as np
@@ -19,7 +19,7 @@ import plotly.graph_objs as go
 import plotly.io as pio
 import plotly.express as px
 
-data = data.read_data()
+data = read_data()
 
 def main():
     with st.sidebar: sidebar()
