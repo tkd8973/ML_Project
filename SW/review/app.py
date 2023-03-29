@@ -146,9 +146,17 @@ def knn():
     X_train,y_train,X_test,y_test = load_data()
     
     models = []
-    model = KNeighborsRegressor(metric='euclidean', n_neighbors=1, weights='uniform')
+    grid_params = {'n_neighbors' : list(range(1,10)),
+    'weights' : ["uniform", "distance"],
+    'metric' : ['euclidean', 'manhattan', 'minkowski']}
+    
+    model = KNeighborsRegressor()
     model.fit(X_train,y_train)
 
+    gs = GridSearchCV(knn, grid_params, cv=10)
+    gs.fit(X_train, y_train)
+
+    st.write(gs)
     pred=model.predict(X_test)
     rmse = mean_squared_error(y_test,pred)**0.5
     
@@ -156,7 +164,7 @@ def knn():
 
     result = np.array(models).reshape(1,-1)
 
-    st.write(result)
+    # st.write(result)
     
     return model
 
