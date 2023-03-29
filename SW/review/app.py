@@ -17,6 +17,7 @@ import joblib
 from ML_Model import *
 import plotly.graph_objs as go
 import plotly.io as pio
+import plotly.express as px
 
 def main():
     with st.sidebar: sidebar()
@@ -82,6 +83,8 @@ def contents():
             background()
             aa=col_()
             st.write(aa)
+            fig = px.scatter(handle_preprocessing(), x='전용면적(㎡)', y='평당가', color='시군구', size='size')
+            st.plotly_chart(fig)
         with tab1: 
             tab1.subheader("📈Linear Regression📈")
             lr_model = lr()
@@ -151,8 +154,6 @@ def knn():
     mean_test_scores = grid_search.cv_results_['mean_test_score']
     st.write(mean_test_scores)
     # Extract hyperparameters from parameter settings
-
-
     return grid_search
 # 랜덤포레스트 모델
 def rdf():
