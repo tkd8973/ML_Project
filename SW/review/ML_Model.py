@@ -23,5 +23,5 @@ def XGB_(model,data):
     st.write(pred)
 # LGBM 모델
 def LGBM_(model,data):
-pred = model.predict(data)
+    pred = model.predict(data)
     st.write(pred)
