@@ -149,7 +149,7 @@ def knn():
     r2=[]
     # 모델 훈련
     for i in range(0,5):
-        model = KNeighborsRegressor(i,weight='distance')
+        model = KNeighborsRegressor(i,weights='distance')
         model.fit(X_train,y_train)
         pred = model.predict(X_test)
 
@@ -159,7 +159,7 @@ def knn():
 
     st.write(r2)
     st.write(rmse)
-    
+
     return model
 # 랜덤포레스트 모델
 def rdf():
