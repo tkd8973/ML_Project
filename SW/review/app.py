@@ -61,12 +61,12 @@ def col_():
             st.write(f'현재 선택한 금리는 {3.75} 입니다')
         else:
             today = datetime.date.today()
-            
-    if st.button('입력 완료',key='set_data'):
-        st.write("입력이 완료 되었습니당")            
-        input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
-                                    columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
-    else :
+    try:        
+        if st.button('입력 완료',key='set_data'):
+            st.write("입력이 완료 되었습니당")            
+            input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
+                                        columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
+    except:
         st.write('입력해주세요')
 
         return input_data
