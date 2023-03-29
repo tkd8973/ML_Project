@@ -69,9 +69,10 @@ def col_():
         input_data = pd.DataFrame(np.array([area,year_apt,genre,3.75]).reshape(1,-1),
                                     columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
     
-
         return input_data
-
+    
+    else:
+        return [0,0,0,0]
 def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
