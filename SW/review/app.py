@@ -77,9 +77,9 @@ def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     try:
         with tab0:
+            background()
             aa=col_()
             st.write(aa)
-            background()
             
 
         with tab1: 
