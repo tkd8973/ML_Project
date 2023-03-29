@@ -214,9 +214,15 @@ def dct():
 
     fig = px.line(x=range(1,len(df)+1),y=score)
     st.plotly_chart(fig)
-
     estimator = grid.best_estimator_
     y_pred = estimator.predict(X_test)
+    fig2 = go.Figure()
+    fig2.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제 값'))
+    fig2.add_trace(go.Scatter(x=list(range(len(pred))), y=pred, mode='lines', name='모델 예측 값'))
+    fig2.update_layout(title='XGBoost 모델 예측 결과',
+                    xaxis_title='데이터 인덱스',
+                    yaxis_title='예측값')
+    st.plotly_chart(fig2)
 
     return grid
 
