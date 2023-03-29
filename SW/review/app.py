@@ -56,7 +56,7 @@ def col_():
             else:
                 today = datetime.date.today()
 
-    if st.button('입력 완료', key=2):
+    if st.button('입력 완료'):
         st.write("입력이 완료 되었습니당")            
         input_data = pd.DataFrame([area,year,genre,int_rate],columns = ['전용면적(㎡)','건축년도','거래유형','금리'])
 
