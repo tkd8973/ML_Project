@@ -178,14 +178,14 @@ def rdf():
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
 
-        rmse = mean_squared_error(y_test,pred)**0.5
+        rmse = mean_squared_error(y_test,y_pred)**0.5
         rmse_.append(rmse)
         r2 = r2_score(y_test, y_pred)
         r2_scores.append(r2)
     # 나무의 수에 따른 모델의 성능을 그래프로 시각화합니다.
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=list(range(len(y_test))), y=r2_scores, mode='lines', name='R²'))
-    fig.add_trace(go.Scatter(x=list(range(len(pred))), y=rmse_, mode='lines', name='RMSE'))
+    fig.add_trace(go.Scatter(x=list(range(len(y_pred))), y=rmse_, mode='lines', name='RMSE'))
     fig.update_layout(title='XGBoost 모델 예측 결과',
                     xaxis_title='데이터 인덱스',
                     yaxis_title='예측값')
