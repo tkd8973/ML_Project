@@ -147,16 +147,13 @@ def knn():
     
     #@title KNN
     models = []
-    for i in range(0,6):
-        if i==0:
-            continue
-        model = KNeighborsRegressor(metric= 'euclidean', n_neighbors = 1, weight = 'uniform')
-        model.fit(X_train,y_train)
+    model = KNeighborsRegressor(metric='euclidean', n_neighbors=1, weights='uniform')
+    model.fit(X_train,y_train)
 
-        pred=model.predict(X_test)
-        rmse = mean_squared_error(y_test,pred)**0.5
-        
-        models.append(rmse)
+    pred=model.predict(X_test)
+    rmse = mean_squared_error(y_test,pred)**0.5
+    
+    models.append(rmse)
 
     result = np.array(models).reshape(1,-1)
 
