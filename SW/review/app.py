@@ -39,7 +39,7 @@ def sidebar() :
 def col_():
         col1,col2 = st.columns([1, 1])
         with col1 :
-            st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
+            area = st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
             # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
             st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
             genre = st.radio(
@@ -47,17 +47,14 @@ def col_():
                 ('중개거래', '직거래'))
             st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
         with col2 :
-            st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1)
+            year_apt = st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1)
             # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
             st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
             if st.button('현재 금리 적용'):
                 today = datetime.date.today()
+                int_rate = 3.75
             else:
                 today = datetime.date.today()
-        if st.button('예측'):
-            st.write("아파트 실거래가 예측 값 입니다")
-        else:
-            st.write("")
 
 
 def contents():
