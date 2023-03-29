@@ -11,7 +11,7 @@ from xgboost import XGBRegressor
 from data import get_city_list, get_gu_list, get_town_list, get_village_list
 from service import get_filtered_data, handle_preprocessing
 import datetime
-
+import pandas as pd
 def main():
     with st.sidebar: sidebar()
     contents()
