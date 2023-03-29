@@ -159,10 +159,10 @@ def knn():
         models.append(rmse)
 
     result = np.array(models)
-    fig = px.line(x=range(len(result)),y= result.reshape(1,-1) )
+    fig = px.line(x=list(range(len(result))),y= result.reshape(1,-1) )
     st.plotly_chart(fig)
     
-    return grid_search
+    return model
 
 # 랜덤포레스트 모델
 def rdf():
