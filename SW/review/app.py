@@ -36,25 +36,25 @@ def sidebar() :
         st.session_state['village'] = ''
 
 
-def col_(i):
+def col_():
         col1,col2 = st.columns([1, 1])
         with col1 :
-            st.slider('전용 면적을 선택해 주세요', 0.0, 300.0,key =i)
+            st.slider('전용 면적을 선택해 주세요', 0.0, 300.0)
             # st.write("전용 면적 ", area, '(㎡)을 선택하셨습니다.')
             st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
             genre = st.radio(
                 "거래 유형을 선택해 주세요 (중개거래, 직거래)",
-                ('중개거래', '직거래'), key=12+i )
+                ('중개거래', '직거래'))
             st.markdown(f"<div style='margin-top: 25px; margin-right: 20px;'></div>", unsafe_allow_html=True)
         with col2 :
-            st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1,key=i+1)
+            st.slider('건축 년도를 선택해 주세요', min_value = 1940, max_value=2023,step=1)
             # st.write("건축 년도 ", year_of_construction, '년을 선택하셨습니다.')
             st.markdown(f"<div style='margin-top: 25px;'></div>", unsafe_allow_html=True)
-            if st.button('현재 금리 적용', key=23+i):
+            if st.button('현재 금리 적용'):
                 today = datetime.date.today()
             else:
                 today = datetime.date.today()
-        if st.button('예측', key=34+i):
+        if st.button('예측'):
             st.write("아파트 실거래가 예측 값 입니다")
         else:
             st.write("")
@@ -67,30 +67,25 @@ def contents():
     tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['df',"Linear Regressor", 'KNN', "Decision Tree", 'Random Forest', "XGBoost", "LightGBM"])
     
     with tab0:
+        col_()
         background()
     with tab1: 
         tab1.subheader("📈Linear Regression📈")
-        col_(1)
-        lr() 
+         lr() 
     with tab2: 
         tab2.subheader("🤝KNN🤝")
-        col_(3)
         knn()
     with tab3:
         tab3.subheader("🌲Decision Tree🌲")
-        col_(5) 
         dct()
     with tab4:
         tab4.subheader("🌳Random Forest🌳") 
-        col_(7)
         rdf()
     with tab5:
         tab5.subheader("💪XGBoost💪") 
-        col_(9)
         xgb()
     with tab6: 
         tab6.subheader("⚡️LightGBM⚡️")
-        col_(11)
         lgbm()
         
 
