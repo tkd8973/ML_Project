@@ -146,13 +146,13 @@ def knn():
     X_train,y_train,X_test,y_test = load_data()
     
     models = []
-    param_grid = {'n_neighbors': [3, 5, 7, 9], 
+    param_grid = {'n_neighbors': [1, 3, 5, 7], 
     'weights': ['uniform', 'distance'], 
     'p': [1, 2, 3]}
     model = KNeighborsRegressor()
     grid_search = GridSearchCV(model, param_grid=param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train, y_train)
-    mean_test_scores = grid_search.cv_results_['mean_test_score'].reshape(1,-1)
+    mean_test_scores = grid_search.cv_results_['mean_test_score']
     
     st.write(mean_test_scores)
     # Extract hyperparameters from parameter settings
