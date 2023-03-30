@@ -160,6 +160,7 @@ def knn():
         r2_scores.append(r2)
         rmse_.append(rmse)
     model = KNeighborsRegressor(min(rmse_))
+    model.fit(X_train,y_train)
     y_pred = model.predict(X_test)
     fig = px.line(x=range(1,6),y=rmse_,title='K값에 따른 RMSE 변화')
     fig2.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제값'))
