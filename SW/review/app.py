@@ -207,7 +207,6 @@ def dct():
     grid.fit(X_train, y_train)
     st.write(grid.best_score_)
     df = pd.DataFrame(grid.cv_results_)
-    st.write(df)
     score = df['mean_test_score']
 
     fig = px.line(x=range(1,len(df)+1),y=score,title= 'max_depth에 따른 RMSE값 변화')
