@@ -158,7 +158,7 @@ def knn():
         r2=r2_score(y_test,pred)
         r2_scores.append(r2)
         rmse_.append(rmse)
-    fig = px.line(x=range(1,6),y=rmse,name='K값에 따른 RMSE 변화')
+    fig = px.line(x=range(1,6),y=rmse_,name='K값에 따른 RMSE 변화')
     st.plotly_chart(fig)
     st.write(r2_scores)
     st.write(rmse_)
