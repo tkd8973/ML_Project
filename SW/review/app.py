@@ -159,7 +159,7 @@ def knn():
         r2=r2_score(y_test,pred)
         r2_scores.append(r2)
         rmse_.append(rmse)
-    model = KNeighborsRegressor(min(rmse_))
+    model = KNeighborsRegressor(min(rmse_),weights='distance')
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)
     fig = px.line(x=range(1,6),y=rmse_,title='K값에 따른 RMSE 변화')
