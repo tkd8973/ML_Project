@@ -159,16 +159,10 @@ def knn():
         r2=r2_score(y_test,pred)
         r2_scores.append(r2)
         rmse_.append(rmse)
-    rmse_arr = np.array(rmse)
-    model = KNeighborsRegressor(np.argmin(rmse_arr),weights='distance')
-    model.fit(X_train,y_train)
+        
     y_pred = model.predict(X_test)
     fig = px.line(x=range(1,6),y=rmse_,title='K값에 따른 RMSE 변화')
-    fig2.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, mode='lines', name='실제값'))
-    fig2.add_trace(go.Scatter(x=list(range(len(y_pred))), y=y_pred, mode='lines', name='예측값'))
-    fig2.update_layout(title='XGBoost 모델 예측 결과',
-                    xaxis_title='데이터 인덱스',
-                    yaxis_title='예측값')
+
     st.plotly_chart(fig2)
     
     st.plotly_chart(fig)
