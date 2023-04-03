@@ -163,7 +163,7 @@ def knn():
     y_pred = model.predict(X_test)
     fig = px.line(x=range(1,6),y=rmse_,title='K값에 따른 RMSE 변화')
     st.plotly_chart(fig)
-    fig = px.line(x=range(1,6),y=r2_scores,title='K값에 따른 RMSE 변화')
+    fig = px.line(x=range(1,6),y=r2_scores,title='K값에 따른 R² 변화')
     st.plotly_chart(fig)
     
     return model
