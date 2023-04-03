@@ -162,13 +162,10 @@ def knn():
         
     y_pred = model.predict(X_test)
     fig = px.line(x=range(1,6),y=rmse_,title='K값에 따른 RMSE 변화')
-
-    st.plotly_chart(fig2)
-    
     st.plotly_chart(fig)
-    st.write(r2_scores)
-    st.write(rmse_)
-
+    fig = px.line(x=range(1,6),y=r2_scores,title='K값에 따른 RMSE 변화')
+    st.plotly_chart(fig)
+    
     return model
 # 랜덤포레스트 모델
 def rdf():
